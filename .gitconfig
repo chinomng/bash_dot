@@ -20,9 +20,9 @@ name = Mariano Galan
 email = chinomng@gmail.com
 
 [pager]
-log = diff-highlight | less
-show = diff-highlight | less
-diff = diff-highlight | less
+#log = diff-highlight | less
+#show = diff-highlight | less
+#diff = diff-highlight | less
 
 [color "diff"]
 meta = yellow bold
