@@ -1,6 +1,6 @@
 [core]
 editor = "emacs -nw --quick"
-excludesfile = /home/humitos/.gitignore_global
+excludesfile = /home/chinomng/.gitignore_global
 
 [color]
 diff = auto
@@ -8,16 +8,16 @@ ui = auto
 
 [sendemail]
 chainreplyto = false
-from = Manuel Kaufmann <humitos@gmail.com>
+from = Mariano Galan <chinomng@gmail.com>
 smtpserver = smtp.gmail.com
-smtpuser = humitos@gmail.com
+smtpuser = chinomng@gmail.com
 smtpserverport = 587
 smtpencryption = tls
 confirm = auto
 
 [user]
-name = Manuel Kaufmann
-email = humitos@gmail.com
+name = Mariano Galan
+email = chinomng@gmail.com
 
 [pager]
 log = diff-highlight | less
