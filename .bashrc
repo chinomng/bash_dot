@@ -1,53 +1,25 @@
-[core]
-editor = "emacs -nw --quick"
-excludesfile = /home/humitos/.gitignore_global
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
-[color]
-diff = auto
-ui = auto
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
-[sendemail]
-chainreplyto = false
-from = Manuel Kaufmann <humitos@gmail.com>
-smtpserver = smtp.gmail.com
-smtpuser = humitos@gmail.com
-smtpserverport = 587
-smtpencryption = tls
-confirm = auto
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-[user]
-name = Manuel Kaufmann
-email = humitos@gmail.com
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
-[pager]
-log = diff-highlight | less
-show = diff-highlight | less
-diff = diff-highlight | less
+. ~/.shell/aliases
+#. ~/.shell/variables
+#. ~/.shell/functions
 
-[color "diff"]
-meta = yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
-whitespace = red reverse
-
-[alias]
-# https://github.com/brandon-rhodes/homedir/blob/master/.gitconfig
-ci = commit
-amend = commit --amend
-co = checkout
-d = diff
-l = log --graph --pretty=oneline --abbrev-commit --decorate=short
-lp = log -p
-ls = log --stat
-st = status
-locate = ls-tree --name-only -r HEAD
-
-[push]
-default = simple
-
-[merge]
-tool = meld
-
-[credential]
-helper = cache
+# bash completion
+for f in $HOME/.shell/completion.d/*; do
+   . $f
+done
