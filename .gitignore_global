@@ -1,0 +1,16 @@
+# emacs files
+*.restclient
+*~
+*#
+.projectile
+.dir-locals.el
+TAGS
+locate.db
+\#*
+*_flymake.py
+
+# git
+*.orig
+
+# virtualenv
+.venv
