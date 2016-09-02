@@ -1,3 +1,18 @@
+#show aliases
+alias a='echo "------------Your aliases------------";alias'
+
+alias s='sudo '
+
+#Opens a GUI text editor in the background. Can obviously be replaced with your favorite editor
+alias text='gedit &'
+#Same as above with super user privileges
+alias sutext='gksudo gedit &'
+
+alias untarz='tar -xzf'
+alias untarj='tar -xjf'
+
+alias gui='git gui &'
+
 alias youtube-dl='PYTHONPATH=$PYTHONPATH:/home/humitos/Source/youtube-dl/ ~/Source/youtube-dl/bin/youtube-dl --restrict-filenames --retries 50 --continue'
 
 alias ..='cd ..'
@@ -11,6 +26,7 @@ alias servesmtp="python -m smtpd -n -c DebuggingServer localhost:1025"
 
 alias pdbclean='find . -name "*.py" -exec sed -ri "/import ipdb;ipdb.set_trace()/d" {} \;'
 alias pycclean='find . -name "*.pyc" -exec rm {} \;'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 
 # some ls aliases
 alias ll='ls -alF'
