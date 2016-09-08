@@ -2,7 +2,7 @@
 
 shopt -s dotglob # shows dots in file globbing
 
-for i in .bashrc .shell .config/i3 .gitconfig .gitignore
+for i in .bashrc .shell .config/i3 .gitconfig .gitignore .isort.cfg
 do
   rm $HOME/$i 2>/dev/null # remove duplicates
   ln -s `pwd`/$i $HOME/$i # copy new files in
