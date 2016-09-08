@@ -21,12 +21,19 @@ alias ....='cd ../../..'
 
 alias cp='cp -iv'
 
+alias source_bashrc='source ~/.bashrc'
+
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 alias servesmtp="python -m smtpd -n -c DebuggingServer localhost:1025"
 
-alias pdbclean='find . -name "*.py" -exec sed -ri "/import ipdb;ipdb.set_trace()/d" {} \;'
-alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+alias pdbclean='find . -name "*.py" -exec sed -ri "/import ipdb;ipdb.set_trace()/d" {} \;'
+alias ipdbclean='pdbclean'
+alias pycclean='find . -name "*.pyc" -exec rm {} \;'
+
+alias isort_staging='git diff --name-only staging... | grep .py |  xargs isort'
+alias autopep8_staging='git diff --name-only staging... | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
 
 # some ls aliases
 alias ll='ls -alF'
