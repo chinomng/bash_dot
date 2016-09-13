@@ -66,3 +66,5 @@ alias bpython='fades -d bpython -d jedi -d watchdog -x bpython'
 alias docker-compose='fades -d docker-compose -x docker-compose'
 
 alias ff='firefox'
+
+alias pycharm_fix_keyboard='sudo killall -9 ibus-x11'
