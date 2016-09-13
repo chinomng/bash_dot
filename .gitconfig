@@ -42,6 +42,7 @@ lp = log -p
 ls = log --stat
 st = status
 locate = ls-tree --name-only -r HEAD
+stash = stash save -u
 
 [push]
 default = simple
