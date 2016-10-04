@@ -43,6 +43,7 @@ ls = log --stat
 st = status
 locate = ls-tree --name-only -r HEAD
 stash = stash save -u
+delete = branch -D
 
 [push]
 default = simple
