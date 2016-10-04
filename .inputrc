@@ -1,0 +1,18 @@
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
+# only require 1 <Tab> to see ambiguous listings
+set show-all-if-ambiguous on
+
+# result in a character being appended to any file-names returned by
+# completion
+set visible-stats on
+
+set completion-ignore-case on
+
+# no limit in history
+# set history-size 0
+
+$include  /etc/inputrc
