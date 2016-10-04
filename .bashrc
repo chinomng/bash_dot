@@ -23,3 +23,5 @@ fi
 for f in $HOME/.shell/completion.d/*; do
    . $f
 done
+
+export PYTHONSTARTUP=$HOME/.pythonrc.py
