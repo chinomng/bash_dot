@@ -193,12 +193,15 @@ workspace 3 output HDMI1
 workspace 4 output HDMI1
 workspace 5 output LVDS1
 
+assign [class="^Slack$"]2
 assign [class="^google-chrome$"]3
 assign [class="^jetbrains-pycharm-ce$"]4
 assign [class="^Gedit$"]5
 
 exec --no-startup-id i3-msg 'workspace 1; exec terminator -l iats'
 exec --no-startup-id i3-msg 'workspace 1; exec terminator -l sandbox'
+
+exec --no-startup-id i3-msg 'workspace 2; exec slack'
 
 exec --no-startup-id i3-msg 'workspace 3; exec google-chrome'
 
