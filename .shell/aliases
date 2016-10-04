@@ -11,9 +11,19 @@ alias sutext='gksudo gedit &'
 alias untarz='tar -xzf'
 alias untarj='tar -xjf'
 
-alias gui='git gui &'
+# Mozio
+alias mozio='cd ~/mozio/backend/mozio;workon mozio'
+alias ondemand='cd ~/mozio/ondemand;workon ondemand'
+alias commons='cd ~/mozio/mozio-commons;workon mozio-commons'
+alias ondemand_fix_settings='pycclean;rm ondemand/settings/active.py;ln -s base.py ondemand/settings/active.py'
+alias mozio_requirements='pip install --exists-action i -r requirements/dev.txt;python manage.py migrate;'
 
-alias youtube-dl='PYTHONPATH=$PYTHONPATH:/home/humitos/Source/youtube-dl/ ~/Source/youtube-dl/bin/youtube-dl --restrict-filenames --retries 50 --continue'
+# Git
+alias gui='git gui &'
+alias git_my_branches='git branch | grep chinomng'
+alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%an, %cr"'
+
+alias youtube-dl='PYTHONPATH=$PYTHONPATH:/home/chinomng/Source/youtube-dl/ ~/Source/youtube-dl/bin/youtube-dl --restrict-filenames --retries 50 --continue'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -35,6 +45,10 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 alias isort_staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs isort'
 alias autopep8_staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
 alias styles_staging='isort_staging;autopep8_staging'
+
+alias isort_master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs isort'
+alias autopep8_master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
+alias styles_master='isort_master;autopep8_master'
 
 # some ls aliases
 alias ll='ls -alF'
@@ -58,6 +72,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias e='emacsclient -n'
+alias emacs='~/emacs-configuration/tryit.sh'
 alias supdate='sudo apt-get update'
 alias supgrade='sudo apt-get upgrade'
 
