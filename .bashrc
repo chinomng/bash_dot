@@ -25,3 +25,6 @@ for f in $HOME/.shell/completion.d/*; do
 done
 
 export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+export WORKON_HOME=~/Envs
+source ~/.local/bin/virtualenvwrapper.sh
