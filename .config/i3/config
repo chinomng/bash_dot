@@ -13,6 +13,9 @@ set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:DejaVu Sans Mono 22
+font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 23
+font pango:Terminus 23px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -89,16 +92,15 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move workspace 1
-bindsym $mod+Shift+quotedbl move workspace 2
-bindsym $mod+Shift+numbersign move workspace 3
-bindsym $mod+Shift+dollar move workspace 4
-bindsym $mod+Shift+percent move workspace 5
-bindsym $mod+Shift+ampersand move workspace 6
-bindsym $mod+Shift+slash move workspace 7
-bindsym $mod+Shift+parenleft move workspace 8
-bindsym $mod+Shift+parenright move workspace 9
-bindsym $mod+Shift+equal move workspace 10
+bindsym $mod+Shift+1 move workspace 1
+bindsym $mod+Shift+2 move workspace 2
+bindsym $mod+Shift+3 move workspace 3
+bindsym $mod+Shift+4 move workspace 4
+bindsym $mod+Shift+5 move workspace 5
+bindsym $mod+Shift+6 move workspace 6
+bindsym $mod+Shift+7 move workspace 7
+bindsym $mod+Shift+8 move workspace 8
+bindsym $mod+Shift+9 move workspace 9
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -177,36 +179,38 @@ bindsym Mod1+Tab workspace next_on_output
 bindsym Mod1+Shift+Tab workspace prev_on_output
 
 bindsym Mod1+q exec xrandr --output HDMI1 --off
-bindsym Mod1+w exec xrandr --output HDMI1 --auto --mode 1920x1080 --above LVDS1 --output LVDS1 --auto --mode 1280x800
+bindsym Mod1+w exec xrandr --output HDMI1 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 
 # monitors configuration
-exec --no-startup-id xrandr --output HDMI1 --auto --mode 1920x1080 --above LVDS1 --output LVDS1 --auto --mode 1280x800
+#exec --no-startup-id xrandr --output HDMI1 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
+exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
 
 exec --no-startup-id xset m 1 1
 
 # load layouts
 workspace_layout tabbed
 
-workspace 1 output LVDS1
-workspace 2 output LVDS1
+workspace 1 output eDP1
+workspace 2 output eDP1
 workspace 3 output HDMI1
 workspace 4 output HDMI1
-workspace 5 output LVDS1
+workspace 5 output eDP1
 
-assign [class="^Slack$"]2
-assign [class="^google-chrome$"]3
-assign [class="^jetbrains-pycharm-ce$"]4
-assign [class="^Gedit$"]5
+assign [class="^slack$"] → 2
+assign [class="^mozio$"] → 3
+assign [class="^jetbrains-pycharm-ce$"] → 4
+assign [class="^Gedit$"] → 5
+assign [class="^chinomng$"] → 6
 
 exec --no-startup-id i3-msg 'workspace 1; exec terminator -l iats'
 exec --no-startup-id i3-msg 'workspace 1; exec terminator -l sandbox'
 
-exec --no-startup-id i3-msg 'workspace 2; exec slack'
+exec --no-startup-id i3-msg 'workspace 3; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio'
 
-exec --no-startup-id i3-msg 'workspace 3; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace 2; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 2 --app=https://mozio.slack.com --class=slack'
 
-exec --no-startup-id i3-msg 'workspace 4; exec /home/chinomng/Downloads/pycharm-community-2016.1.2/bin/pycharm.sh'
+exec --no-startup-id i3-msg 'workspace 4; exec /home/chinomng/Downloads/pycharm/bin/pycharm.sh'
 
 exec --no-startup-id i3-msg 'workspace 5; exec gedit'
 
-exec --no-startup-id i3-msg 'workspace 6; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace 6; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --class=chinomng'
