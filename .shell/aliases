@@ -12,7 +12,7 @@ alias untarz='tar -xzf'
 alias untarj='tar -xjf'
 
 # Mozio
-alias mozio='cd ~/mozio/backend/mozio;workon mozio'
+alias mozio='cd ~/mozio/mozio;workon mozio'
 alias ondemand='cd ~/mozio/ondemand;workon ondemand'
 alias commons='cd ~/mozio/mozio-commons;workon mozio-commons'
 alias ondemand_fix_settings='pycclean;rm ondemand/settings/active.py;ln -s base.py ondemand/settings/active.py'
