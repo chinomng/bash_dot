@@ -164,9 +164,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 # move workspace between outputs
 bindsym $mod+y move workspace to output UP
 
-# network applet
-exec --no-startup-id nm-applet
-exec --no-startup-id gnome-sound-applet
+# applets
+exec --no-startup-id nm-applet # network
+exec --no-startup-id gnome-sound-applet # sound
+exec --no-startup-id clipit # clipboard manager
 
 # switch between the current and the previously focused one
 bindsym $mod+b workspace back_and_forth
@@ -178,12 +179,12 @@ bindsym $mod+Shift+b move windows to workspace back_and_forth #not working
 bindsym Mod1+Tab workspace next_on_output
 bindsym Mod1+Shift+Tab workspace prev_on_output
 
-bindsym Mod1+q exec xrandr --output HDMI1 --off
-bindsym Mod1+w exec xrandr --output HDMI1 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
+bindsym Mod1+q exec xrandr --output HDMI2 --off
+bindsym Mod1+w exec xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 
 # monitors configuration
-#exec --no-startup-id xrandr --output HDMI1 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
-exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
+exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
+#exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
 
 exec --no-startup-id xset m 1 1
 
@@ -192,8 +193,8 @@ workspace_layout tabbed
 
 workspace 1 output eDP1
 workspace 2 output eDP1
-workspace 3 output HDMI1
-workspace 4 output HDMI1
+workspace 3 output HDMI2
+workspace 4 output HDMI2
 workspace 5 output eDP1
 
 assign [class="^slack$"] → 2
