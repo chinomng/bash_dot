@@ -15,13 +15,26 @@ alias untarj='tar -xjf'
 alias mozio='cd ~/mozio/mozio;workon mozio'
 alias ondemand='cd ~/mozio/ondemand;workon ondemand'
 alias commons='cd ~/mozio/mozio-commons;workon mozio-commons'
-alias ondemand_fix_settings='pycclean;rm ondemand/settings/active.py;ln -s base.py ondemand/settings/active.py'
+alias ondemand_fix_settings='pycclean;rm ondemand/settings/active.py;ln -s dev.py ondemand/settings/active.py'
 alias mozio_requirements='pip install --exists-action i -r requirements/dev.txt;python manage.py migrate;'
 
 # Git
 alias gui='git gui &'
 alias git_my_branches='git branch | grep chinomng'
 alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%an, %cr"'
+alias push='git push'
+alias pull='git pull'
+alias st='git status'
+alias staging='git co staging;git pull'
+alias backend-dev='git co backend-dev;git pull'
+alias master='git co master;git pull'
+
+# django
+alias djrun='python manage.py runserver'
+alias djshell='python manage.py shell'
+alias djmigrate='python manage.py migrate'
+alias djmakemigrations='python manage.py makemigrations'
+alias djtest='python manage.py test'
 
 alias youtube-dl='PYTHONPATH=$PYTHONPATH:/home/chinomng/Source/youtube-dl/ ~/Source/youtube-dl/bin/youtube-dl --restrict-filenames --retries 50 --continue'
 
