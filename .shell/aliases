@@ -57,10 +57,12 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 
 alias isort_staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs isort'
 alias autopep8_staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
+alias yapf_staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
 alias styles_staging='isort_staging;autopep8_staging'
 
 alias isort_master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs isort'
 alias autopep8_master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
+alias yapf_master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
 alias styles_master='isort_master;autopep8_master'
 
 # some ls aliases
