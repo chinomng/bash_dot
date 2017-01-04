@@ -28,3 +28,7 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 
 export WORKON_HOME=~/Envs
 source ~/.local/bin/virtualenvwrapper.sh
+
+# xinput -list | grep -i key
+setxkbmap latam
+
