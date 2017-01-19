@@ -13,6 +13,73 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[Docker]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 3e699312-65e6-4b1c-b8b5-63d63159706f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:1110
+      size = 1596, 836
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 415
+      ratio = 0.499401913876
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 795
+      ratio = 0.499686716792
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 205
+      ratio = 0.498798076923
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 795
+      ratio = 0.499686716792
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 2abd9a4d-23de-4cde-b36c-c3bf2ede30a3
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = f9f27bf9-60ba-4370-bd24-a21b5a18b03f
+[plugins]
 [profiles]
   [[default]]
     background_color = "#ffffdd"
