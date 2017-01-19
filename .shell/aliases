@@ -23,15 +23,23 @@ alias ondemand_production_settings='pycclean;rm ondemand/settings/active.py;ln -
 alias ondemand_docker_tests='sudo docker-compose run ondemand-tests'
 alias ondemand_docker_one_test='sudo docker-compose run ondemand-tests bash'
 alias mozio_requirements='pip install --exists-action i -r requirements/dev.txt;python manage.py migrate;'
+alias commons_add_link='ln -s ../mozio-commons/mozio_commons/'
+alias commons_rm_link='rm mozio_commons'
 
 # Docker
 alias docker-ps='sudo docker ps'
-alias docker-compose-ondemand='sudo docker-compose run ondemand-tests'
-alias docker-compose-mozio='sudo docker-compose run mozio-tests'
-alias docker-compose-pull='sudo docker-compose pull'
-alias docker-compose-ps='sudo docker-compose ps'
-alias docker-compose-down='sudo docker-compose down'
-alias docker-compose-logs='sudo docker-compose logs -f'
+alias dc-ondemand='sudo docker-compose run ondemand-tests'
+alias dc-mozio='sudo docker-compose run mozio-tests'
+alias dc-pull='sudo docker-compose pull'
+alias dc-ps='sudo docker-compose ps'
+alias dc-down='sudo docker-compose down'
+alias dc-logs='sudo docker-compose logs -f'
+
+alias docker-ondemand-auth='sudo docker exec -it ondemand_auth_1 bash'
+alias docker-ondemand-de='sudo docker exec -it ondemand_de_1 bash'
+alias docker-ondemand-mozio='sudo docker exec -it ondemand_mozio_1 bash'
+
+alias terminator-docker='terminator --layout=Docker'
 
 # Git
 alias gui='git gui &'
