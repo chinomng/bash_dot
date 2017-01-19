@@ -1,0 +1,25 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+  title_font = Monospace 10
+  title_transmit_bg_color = "#ff1800"
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[profiles]
+  [[default]]
+    background_color = "#ffffdd"
+    background_image = None
+    copy_on_selection = True
+    font = Monospace 10
+    foreground_color = "#000000"
+    scroll_on_output = False
+    scrollback_lines = 500000
+    use_system_font = False
