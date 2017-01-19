@@ -23,7 +23,6 @@
       parent = ""
       position = 0:1110
       size = 1596, 836
-      title = /bin/bash
       type = Window
     [[[child1]]]
       order = 0
@@ -54,30 +53,35 @@
       parent = child2
       profile = ondemand
       type = Terminal
+      title = Tests
       uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
     [[[terminal4]]]
       order = 1
       parent = child2
       profile = ondemand
       type = Terminal
+      title = Status
       uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
     [[[terminal6]]]
       order = 0
       parent = child5
       profile = ondemand
       type = Terminal
+      title = Logs
       uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
     [[[terminal8]]]
       order = 0
       parent = child7
       profile = ondemand
       type = Terminal
+      title = Container 1
       uuid = 2abd9a4d-23de-4cde-b36c-c3bf2ede30a3
     [[[terminal9]]]
       order = 1
       parent = child7
       profile = ondemand
       type = Terminal
+      title = Container 2
       uuid = f9f27bf9-60ba-4370-bd24-a21b5a18b03f
 [plugins]
 [profiles]
