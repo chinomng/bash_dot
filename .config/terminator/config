@@ -13,6 +13,51 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[api_test]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 0ca4e4f8-20cb-4151-a5e3-58f7e12d3e1f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:1110
+      size = 1596, 836
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 595
+      ratio = 0.71471291866
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 297
+      ratio = 0.503361344538
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = production      
+      title = Prod
+      type = Terminal
+      uuid = 0ca4e4f8-20cb-4151-a5e3-58f7e12d3e1f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      title = Staging
+      type = Terminal
+      uuid = 5ea7d9d8-d4ae-413d-978f-62cd804a3682
+    [[[terminal5]]]
+      order = 1
+      parent = child1
+      profile = default
+      title = Localhost
+      type = Terminal
+      uuid = 1d674e1b-09da-48ad-85ca-a8e7c0bcd8f6
   [[docker_ondemand]]
     [[[child0]]]
       fullscreen = False
@@ -96,6 +141,18 @@
     use_system_font = False
   [[ondemand]]
     background_color = "#ffffdd"
+    background_image = None
+    copy_on_selection = True
+    custom_command = cd ~/mozio/ondemand;bash
+    exit_action = hold
+    font = Monospace 10
+    foreground_color = "#000000"
+    scroll_on_output = False
+    scrollback_lines = 50000
+    use_custom_command = True
+    use_system_font = False
+  [[production]]
+    background_color = "#ffffff"
     background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/ondemand;bash
