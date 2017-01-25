@@ -40,7 +40,7 @@
     [[[terminal3]]]
       order = 0
       parent = child2
-      profile = production      
+      profile = production
       title = Prod
       type = Terminal
       uuid = 0ca4e4f8-20cb-4151-a5e3-58f7e12d3e1f
@@ -58,6 +58,146 @@
       title = Localhost
       type = Terminal
       uuid = 1d674e1b-09da-48ad-85ca-a8e7c0bcd8f6
+  [[docker_commons]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 3e699312-65e6-4b1c-b8b5-63d63159706f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:30
+      size = 1916, 1016
+      title = root@2bb8295e320f: /code
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 554
+      ratio = 0.547736220472
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 888
+      ratio = 0.464770354906
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 224
+      ratio = 0.495623632385
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 955
+      ratio = 0.499739039666
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = commons
+      title = Tests
+      type = Terminal
+      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = commons
+      title = Status
+      type = Terminal
+      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = commons
+      title = Logs
+      type = Terminal
+      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = commons
+      title = Container 1
+      type = Terminal
+      uuid = 2abd9a4d-23de-4cde-b36c-c3bf2ede30a3
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = commons
+      type = Terminal
+      uuid = d33fac9c-3243-448c-9e6c-3b7cd61d1102
+  [[docker_mozio]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 3e699312-65e6-4b1c-b8b5-63d63159706f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:30
+      size = 1916, 1016
+      title = root@2bb8295e320f: /code
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 554
+      ratio = 0.547736220472
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 888
+      ratio = 0.464770354906
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 224
+      ratio = 0.495623632385
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 955
+      ratio = 0.499739039666
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = mozio
+      title = Tests
+      type = Terminal
+      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = mozio
+      title = Status
+      type = Terminal
+      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = mozio
+      title = Logs
+      type = Terminal
+      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = mozio
+      title = Container 1
+      type = Terminal
+      uuid = 2abd9a4d-23de-4cde-b36c-c3bf2ede30a3
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = mozio
+      type = Terminal
+      uuid = d33fac9c-3243-448c-9e6c-3b7cd61d1102
   [[docker_ondemand]]
     [[[child0]]]
       fullscreen = False
@@ -144,6 +284,30 @@
     background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/ondemand;bash
+    exit_action = hold
+    font = Monospace 10
+    foreground_color = "#000000"
+    scroll_on_output = False
+    scrollback_lines = 50000
+    use_custom_command = True
+    use_system_font = False
+  [[mozio]]
+    background_color = "#ffffdd"
+    background_image = None
+    copy_on_selection = True
+    custom_command = cd ~/mozio/mozio;bash
+    exit_action = hold
+    font = Monospace 10
+    foreground_color = "#000000"
+    scroll_on_output = False
+    scrollback_lines = 50000
+    use_custom_command = True
+    use_system_font = False
+  [[commons]]
+    background_color = "#ffffdd"
+    background_image = None
+    copy_on_selection = True
+    custom_command = cd ~/mozio/mozio-commons;bash
     exit_action = hold
     font = Monospace 10
     foreground_color = "#000000"
