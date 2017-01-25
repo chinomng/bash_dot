@@ -37,8 +37,8 @@ alias docker-ps='docker ps'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
 
-alias dc-ondemand-tests='docker-compose run ondemand-tests'
-alias dc-ondemand-shell='docker-compose run ondemand-shell'
+alias dc-ondemand-tests='docker-compose run tests'
+alias dc-ondemand-shell='docker-compose run shell'
 
 alias docker-ondemand-auth='docker exec -it ondemand_auth_1 bash'
 alias docker-ondemand-de='docker exec -it ondemand_de_1 bash'
