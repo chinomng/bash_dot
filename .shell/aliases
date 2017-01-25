@@ -20,28 +20,30 @@ alias ondemand-dev-settings='pycclean;rm ondemand/settings/active.py;ln -s dev.p
 alias ondemand-docker-settings='pycclean;rm ondemand/settings/active.py;ln -s docker.py ondemand/settings/active.py'
 alias ondemand-staging-settings='pycclean;rm ondemand/settings/active.py;ln -s staging.py ondemand/settings/active.py'
 alias ondemand-production-settings='pycclean;rm ondemand/settings/active.py;ln -s production.py ondemand/settings/active.py'
-alias ondemand-docker-tests='docker-compose run ondemand-tests'
-alias ondemand-docker-one-test='docker-compose run ondemand-tests bash'
+
 alias mozio-requirements='pip install --exists-action i -r requirements/dev.txt;python manage.py migrate;'
 alias commons-add-link='ln -s ../mozio-commons/mozio_commons/'
 alias commons-rm-link='rm mozio_commons'
 
 # Docker
-alias docker-user-group='usermod -aG docker ${USER}'
-alias docker-ps='docker ps'
-alias dc-ondemand='docker-compose run ondemand-tests'
-alias dc-mozio='docker-compose run mozio-tests'
 alias dc-pull='docker-compose pull'
 alias dc-ps='docker-compose ps'
 alias dc-down='docker-compose down'
 alias dc-up='docker-compose up'
 alias dc-logs='docker-compose logs -f'
 
+alias docker-user-group='usermod -aG docker ${USER}'
+alias docker-ps='docker ps'
+
+alias dc-mozio-tests='docker-compose run mozio-tests'
+
+alias dc-ondemand-tests='docker-compose run ondemand-tests'
+alias dc-ondemand-shell='docker-compose run ondemand-shell'
+
 alias docker-ondemand-auth='docker exec -it ondemand_auth_1 bash'
 alias docker-ondemand-de='docker exec -it ondemand_de_1 bash'
 alias docker-ondemand-mozio='docker exec -it ondemand_mozio_1 bash'
 
-alias terminator-docker='terminator --layout=Docker'
 
 # Git
 alias gui='git gui &'
