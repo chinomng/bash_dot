@@ -268,6 +268,76 @@
       title = Container 2
       type = Terminal
       uuid = f9f27bf9-60ba-4370-bd24-a21b5a18b03f
+  [[docker_search]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 3e699312-65e6-4b1c-b8b5-63d63159706f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:1110
+      size = 1596, 836
+      title = root@2bb8295e320f: /code
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 455
+      ratio = 0.547248803828
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 739
+      ratio = 0.464598997494
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 183
+      ratio = 0.49335106383
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 795
+      ratio = 0.499686716792
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = search
+      title = Tests
+      type = Terminal
+      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = search
+      title = Status
+      type = Terminal
+      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = search
+      title = Logs
+      type = Terminal
+      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = search
+      title = Container 1
+      type = Terminal
+      uuid = 2abd9a4d-23de-4cde-b36c-c3bf2ede30a3
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = search
+      type = Terminal
+      uuid = d33fac9c-3243-448c-9e6c-3b7cd61d1102
 [plugins]
 [profiles]
   [[default]]
@@ -279,11 +349,23 @@
     scroll_on_output = False
     scrollback_lines = 500000
     use_system_font = False
-  [[ondemand]]
+  [[commons]]
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/ondemand;bash
+    custom_command = cd ~/mozio/mozio-commons;bash
+    exit_action = hold
+    font = Monospace 10
+    foreground_color = "#000000"
+    scroll_on_output = False
+    scrollback_lines = 50000
+    use_custom_command = True
+    use_system_font = False
+  [[search]]
+    background_color = "#ffffdd"
+    background_image = None
+    copy_on_selection = True
+    custom_command = cd ~/mozio/mozio-search;bash
     exit_action = hold
     font = Monospace 10
     foreground_color = "#000000"
@@ -303,11 +385,11 @@
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
-  [[commons]]
+  [[ondemand]]
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/mozio-commons;bash
+    custom_command = cd ~/mozio/ondemand;bash
     exit_action = hold
     font = Monospace 10
     foreground_color = "#000000"
