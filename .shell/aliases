@@ -41,8 +41,11 @@ alias dc-ondemand-tests='docker-compose run tests'
 alias dc-ondemand-shell='docker-compose run shell'
 
 alias docker-ondemand-auth='docker exec -it ondemand_auth_1 bash'
+alias docker-ondemand-auth-shell='docker exec -it ondemand_auth_1 bash -c "python manage.py shell"'
 alias docker-ondemand-de='docker exec -it ondemand_de_1 bash'
+alias docker-ondemand-de-shell='docker exec -it ondemand_de_1 bash -c "python manage.py shell"'
 alias docker-ondemand-mozio='docker exec -it ondemand_mozio_1 bash'
+alias docker-ondemand-mozio-shell='docker exec -it ondemand_mozio_1 bash -c "python manage.py shell"'
 
 
 # Git
