@@ -37,8 +37,8 @@ alias docker-ps='docker ps'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
 
-alias dc-ondemand-tests='docker-compose run tests'
-alias dc-ondemand-shell='docker-compose run shell'
+alias dc-tests='docker-compose run tests'
+alias dc-shell='docker-compose run shell'
 
 alias docker-ondemand-auth='docker exec -it ondemand_auth_1 bash'
 alias docker-ondemand-auth-shell='docker exec -it ondemand_auth_1 bash -c "python manage.py shell"'
@@ -47,6 +47,8 @@ alias docker-ondemand-de-shell='docker exec -it ondemand_de_1 bash -c "python ma
 alias docker-ondemand-mozio='docker exec -it ondemand_mozio_1 bash'
 alias docker-ondemand-mozio-shell='docker exec -it ondemand_mozio_1 bash -c "python manage.py shell"'
 
+alias docker-search-ondemand-shell='docker exec -it moziosearch_ondemand_1 bash -c "python manage.py shell"'
+alias docker-search-ondemand='docker exec -it moziosearch_ondemand_1 bash'
 
 # Git
 alias gui='git gui &'
