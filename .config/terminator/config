@@ -23,7 +23,7 @@
       parent = ""
       position = 0:1110
       size = 1596, 836
-      title = /bin/bash
+      title = "Api tests"
       type = Window
     [[[child1]]]
       order = 0
@@ -68,7 +68,7 @@
       parent = ""
       position = 0:30
       size = 1916, 1016
-      title = root@2bb8295e320f: /code
+      title = "Commons"
       type = Window
     [[[child1]]]
       order = 0
@@ -138,7 +138,7 @@
       parent = ""
       position = 0:30
       size = 1916, 1016
-      title = root@2bb8295e320f: /code
+      title = "Mozio"
       type = Window
     [[[child1]]]
       order = 0
@@ -208,6 +208,7 @@
       parent = ""
       position = 0:1110
       size = 1596, 836
+      title = "Ondemand"
       type = Window
     [[[child1]]]
       order = 0
@@ -278,7 +279,7 @@
       parent = ""
       position = 0:1110
       size = 1596, 836
-      title = root@2bb8295e320f: /code
+      title = "Search"
       type = Window
     [[[child1]]]
       order = 0
