@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MOZIO_PATH=/home/chinomng/mozio
-MOZIO_REPOSITORIES="mozio ondemand mozio-commons"
+MOZIO_REPOSITORIES="mozio ondemand mozio-commons mozio-search"
 
 for REPO in ${MOZIO_REPOSITORIES}; do
   DISPLAY=:0 notify-send "Pulling docker-compose from '${REPO}'...";

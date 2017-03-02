@@ -1,5 +1,5 @@
 # crontab -u chinomng bash_dot/etc/crontab_chinomng
 
 # m h dom mon dow command
-0  */2    * * * /home/chinomng/bash_dot/scripts/mozio-docker-compose-pull.sh > /home/chinomng/cron-output.txt
+0  */5    * * * /home/chinomng/bash_dot/scripts/mozio-docker-compose-pull.sh > /home/chinomng/cron-output.txt
 
