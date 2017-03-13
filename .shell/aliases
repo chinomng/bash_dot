@@ -139,3 +139,8 @@ alias pycharm-fix-keyboard='sudo killall -9 ibus-x11'
 alias disk='df -h'
 alias disk-size='du -hs'
 alias install='sudo apt-get install'
+
+# Home assistant
+alias ha-restart='sudo systemctl restart home-assistant'
+alias ha-status='sudo systemctl status home-assistant -l'
+alias ha-edit='nano ~/bash_dot/.homeassistant/configuration.yaml'
