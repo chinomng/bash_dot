@@ -31,9 +31,11 @@ alias dc-ps='docker-compose ps'
 alias dc-down='docker-compose down'
 alias dc-up='docker-compose up'
 alias dc-logs='docker-compose logs -f'
+alias dc-runserver='docker-compose up runserver'
 
 alias docker-user-group='usermod -aG docker ${USER}'
 alias docker-ps='docker ps'
+alias docker-prune='docker system prune'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
 
@@ -46,6 +48,11 @@ alias docker-ondemand-de='docker exec -it ondemand_de_1 bash'
 alias docker-ondemand-de-shell='docker exec -it ondemand_de_1 bash -c "python manage.py shell"'
 alias docker-ondemand-mozio='docker exec -it ondemand_mozio_1 bash'
 alias docker-ondemand-mozio-shell='docker exec -it ondemand_mozio_1 bash -c "python manage.py shell"'
+
+alias docker-mozio-auth='docker exec -it mozio_auth_1 bash'
+alias docker-mozio-auth-shell='docker exec -it mozio_auth_1 bash -c "python manage.py shell"'
+alias docker-mozio-de='docker exec -it mozio_de_1 bash'
+alias docker-mozio-de-shell='docker exec -it mozio_de_1 bash -c "python manage.py shell"'
 
 alias docker-search-ondemand-shell='docker exec -it moziosearch_ondemand_1 bash -c "python manage.py shell"'
 alias docker-search-ondemand='docker exec -it moziosearch_ondemand_1 bash'
@@ -65,8 +72,9 @@ alias greset='git reset --hard'
 alias st='git status'
 alias co='git checkout'
 alias staging='git co staging;git pull'
-alias backend-dev='git co backend-dev;git pull'
 alias master='git co master;git pull'
+
+# sha1=origin/pr/<prnumber>/merge
 
 # django
 alias djrun='python manage.py runserver'
@@ -97,12 +105,12 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 alias isort-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs isort'
 alias autopep8-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
 alias yapf-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
-alias styles-staging='isort_staging;autopep8_staging'
+alias styles-staging='isort-staging;autopep8-staging'
 
 alias isort-master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs isort'
 alias autopep8-master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
 alias yapf-master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
-alias styles-master='isort_master;autopep8_master'
+alias styles-master='isort-master;autopep8-master'
 
 # some ls aliases
 alias ll='ls -alF'
