@@ -39,25 +39,25 @@ logbook:
 # Track the sun
 sun:
 
-mqtt:
-  broker: 192.168.1.107
-  port: 8883
-  client_id: home-assistant-mariano
-  keepalive: 60
-  #username: USERNAME
-  #password: PASSWORD
-  #certificate: /home/paulus/dev/addtrustexternalcaroot.crt
-  protocol: 3.1
-  #birth_message:
-  #  topic: 'hass/status'
-  #  payload: 'online'
-  #  qos: 1
-  #  retain: true
-  #will_message:
-  #  topic: 'hass/status'
-  #  payload: 'offline'
-  #  qos: 1
-  #  retain: true
+#mqtt:
+#  broker: 192.168.1.107
+#  port: 8883
+#  client_id: home-assistant-mariano
+#  keepalive: 60
+#  #username: USERNAME
+#  #password: PASSWORD
+#  #certificate: /home/paulus/dev/addtrustexternalcaroot.crt
+#  protocol: 3.1
+#  #birth_message:
+#  #  topic: 'hass/status'
+#  #  payload: 'online'
+#  #  qos: 1
+#  #  retain: true
+#  #will_message:
+#  #  topic: 'hass/status'
+#  #  payload: 'offline'
+#  #  qos: 1
+#  #  retain: true
 
 # Weather Prediction
 sensor:
@@ -65,22 +65,24 @@ sensor:
 
 light:
   platform: hue
-  host: 192.168.1.100
+  host: 192.168.0.102
 
 group:
   living: light.living_door,light.living_windows,light.kitchen
 
 
 camera:
-  #- platform: foscam
-  #  ip: 192.168.1.106
-  #  port: 1500
-  #  username: admin
-  #  password: everyday123
+  - platform: rpi_camera
+  - platform: foscam
+    ip: 192.168.0.103
+    port: 1500
+    username: admin
+    password: everyday123
 
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.106:1500/videostream.cgi?user=admin&pwd=everyday123&resolution=32&rate=300
+    mjpeg_url: http://192.168.0.103:1500/videostream.cgi?user=admin&pwd=everyday123&resolution=32&rate=1000
     name: Living Camera
+    authentication: digest
 
   #- name: Paulus
   #  platform: generic
@@ -107,10 +109,22 @@ automation:
       seconds: /40
     action:
       service: light.turn_on
-      entity_id: light.hue_color_lamp_1
+      entity_id: light.living_windows
       data:
         brightness: 120
         rgb_color: [255, 0, 0]
+
+  - alias: Camera position
+    trigger:
+      - platform: state
+        entity_id: input_select.camera_positions
+    action:
+      service: shell_command.set_camera_position
+      data_template:
+        pos: '{{ states.input_select.camera_positions.state }}'
+
+shell_command:
+  set_camera_position: 'curl hom-k "http://192.168.0.103:1500/decoder_control.cgi?command={{ pos }}&user=admin&pwd=everyday123"'
 
 scene:
   - name: Energize
@@ -119,11 +133,17 @@ scene:
         state: on
         rgb_color: [255, 255, 255]
         brightness: 255
-  - name: Relax
+  - name: Red
     entities:
       group.all_lights:
         state: on
-        rgb_color: [255, 255, 0]
+        rgb_color: [255, 0, 0]
+        brightness: 100
+  - name: Green
+    entities:
+      group.all_lights:
+        state: on
+        rgb_color: [0, 255, 0]
         brightness: 100
 
 input_boolean:
@@ -145,6 +165,12 @@ input_select:
       - Visitors
       - Visitors with kids
       - Home Alone
+  camera_positions:
+    initial: 31
+    options:
+      - 31
+      - 33
+      - 35
 
 input_slider:
   slider1:
@@ -214,3 +240,4 @@ script:
           service: script.turn_on
           data:
             entity_id: script.flash_room1
+
