@@ -38,6 +38,8 @@ alias docker-ps='docker ps'
 alias docker-prune='docker system prune'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
+alias dc-mozio-shell='docker-compose run mozio-tests bash'
+alias dc-mozio-runserver='docker-compose -f docker-compose.yml -f docker-compose.local.yml run --service-ports mozio'
 
 alias dc-tests='docker-compose run tests'
 alias dc-shell='docker-compose run shell'
@@ -71,6 +73,7 @@ alias branch='git branch'
 alias greset='git reset --hard'
 alias st='git status'
 alias co='git checkout'
+alias pr='hub pull-request -b staging'
 alias staging='git co staging;git pull'
 alias master='git co master;git pull'
 
