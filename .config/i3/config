@@ -189,13 +189,15 @@ bindsym Control+2  exec runorraise.sh instance "web.whatsapp.com" "google-chrome
 
 bindsym Control+3  exec runorraise.sh instance "translate.google.com" "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
 
+bindsym Control+4  exec runorraise.sh instance "inbox.google.com" "google-chrome --app=https://inbox.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+
 # monitors configuration
 exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 #exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
 
 exec --no-startup-id xset m 1 1
 
-# load layouts
+# load layouts. eDP1 is the laptop, HDMI2 is the external monitor
 workspace_layout tabbed
 
 workspace 1 output eDP1
@@ -203,17 +205,24 @@ workspace 2 output eDP1
 workspace 3 output HDMI2
 workspace 4 output HDMI2
 workspace 5 output eDP1
+workspace 6 output HDMI2
+workspace 7 output HDMI2
+workspace 8 output HDMI2
 
-assign [class="^slack$"] → 2
-assign [class="^mozio$"] → 3
-assign [class="^jetbrains-pycharm-ce$"] → 4
-assign [class="^jetbrains-pycharm$"] → 4
-assign [class="^Gedit$"] → 5
-assign [class="^chinomng$"] → 6
-assign [class="^Postman$"] → 7
-# TODO: Check this
-# for_window [class="Spotify"] move to workspace 2
+for_window [instance="terminator"] move to workspace 1
+for_window [instance="mozio.slack.com"] move to workspace 2
+for_window [class="^mozio$"] move to workspace 3
+for_window [class="^jetbrains-pycharm$"] move to workspace 4
+for_window [class="^Gedit$"] move to workspace 5
+for_window [class="^chinomng$"] move to workspace 6
+for_window [class="^Postman$"] move to workspace 7
 
+for_window [instance="gmail.com"] move to workspace 8
+for_window [instance="inbox.google.com"] move to workspace 8
+for_window [instance="translate.google.com"] move to workspace 8
+for_window [instance="web.whatsapp.com"] move to workspace 8
+
+# Apps to be opened on start up
 exec --no-startup-id i3-msg 'workspace 1; exec terminator-docker-mozio'
 
 exec --no-startup-id i3-msg 'workspace 3; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio'
