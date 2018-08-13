@@ -12,8 +12,6 @@ case "$1" in
 esac
 if [ "$count" -eq 0 ]; then
     $3
-#else
-#    i3-msg "[$i3wm_criteria=(?i)$2] focus"
 fi
 
 i3-msg "[$i3wm_criteria=(?i)$2] focus"
