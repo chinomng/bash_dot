@@ -11,6 +11,11 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Argentina/Cordoba
 
+  customize:
+      # Add an entry for each entity that you want to overwrite.
+      script.flash_room1:
+        hidden: true
+
 # Show links to resources in log and frontend
 # introduction:
 
@@ -193,6 +198,15 @@ switch:
     brightness: 200
     mode: xy
 
+  - platform: presence_simulator
+    lights:
+      - light.living_door
+      - light.living_windows
+      - light.kitchen
+    name: Presence simulator
+    # start_time: '7:00' # default to sunrise
+    stop_time: '23:00'
+
   #- platform: arduino
   #  pins:
   #    11:
@@ -241,3 +255,24 @@ script:
           data:
             entity_id: script.flash_room1
 
+
+  fl:
+      alias: Alias1
+      sequence:
+        - service: light.turn_on
+          entity_id:
+            - group.all_lights
+          data:
+            flash: long
+        - alias: loop_room1
+          service: script.turn_on
+          data:
+            entity_id: script.fl
+  fl2:
+      alias: Alias2
+      sequence:
+        - service: light.turn_on
+          entity_id:
+            - group.all_lights
+          data:
+            flash: short

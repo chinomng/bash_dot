@@ -26,7 +26,8 @@ alias commons-add-link='ln -s ../mozio-commons/mozio_commons/'
 alias commons-rm-link='rm mozio_commons'
 
 # Docker
-alias dc-pull='docker-compose pull'
+alias dc-pull='`aws ecr get-login  --region us-east-1` && docker-compose pull'
+alias dc-pull-all='`aws ecr get-login  --region us-east-1` && docker-compose -f /home/chinomng/mozio/mozio/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/ondemand/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/data-entry/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/mozio-search/docker-compose.yml pull'
 alias dc-ps='docker-compose ps'
 alias dc-down='docker-compose down'
 alias dc-up='docker-compose up'
@@ -38,11 +39,13 @@ alias docker-ps='docker ps'
 alias docker-prune='docker system prune'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
-alias dc-mozio-shell='docker-compose run mozio-tests bash'
+alias dc-mozio-bash='docker-compose run mozio-bash'
 alias dc-mozio-runserver='docker-compose -f docker-compose.yml -f docker-compose.local.yml run --service-ports mozio'
 
 alias dc-tests='docker-compose run tests'
-alias dc-shell='docker-compose run shell'
+alias dc-shell='docker-compose run --service-ports shell'
+alias dc-web='docker-compose run --service-ports web'
+alias dc-bash='docker-compose run --service-ports bash'
 
 alias docker-ondemand-auth='docker exec -it ondemand_auth_1 bash'
 alias docker-ondemand-auth-shell='docker exec -it ondemand_auth_1 bash -c "python manage.py shell"'
@@ -63,6 +66,8 @@ alias docker-search-ondemand='docker exec -it moziosearch_ondemand_1 bash'
 alias gui='git gui &'
 alias git-my-branches='git branch | grep chinomng'
 alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%an, %cr"'
+alias git-undo-local-commit='git reset HEAD~'
+alias git-ssh-add='ssh-add ~/.ssh/id_rsa'
 alias push='git push'
 alias diff='git diff'
 alias stash='git stash'
@@ -74,8 +79,8 @@ alias greset='git reset --hard'
 alias st='git status'
 alias co='git checkout'
 alias pr='hub pull-request -b staging'
-alias staging='git co staging;git pull'
-alias master='git co master;git pull'
+alias staging='greset;git co staging;git pull'
+alias master='greset;git co master;git pull'
 
 # sha1=origin/pr/<prnumber>/merge
 
@@ -106,14 +111,9 @@ alias ipdbclean='pdbclean'
 alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 
 alias isort-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs isort'
-alias autopep8-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
 alias yapf-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
-alias styles-staging='isort-staging;autopep8-staging'
-
-alias isort-master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs isort'
-alias autopep8-master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs autopep8 --in-place --max-line-length 120 --ignore E501,E701,E702,E70,E125'
-alias yapf-master='(git diff --name-only;git diff --name-only master...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
-alias styles-master='isort-master;autopep8-master'
+alias unify-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs unify -ir'
+alias styles-staging='isort-staging;yapf-staging;unify-staging'
 
 # some ls aliases
 alias ll='ls -alF'
@@ -150,6 +150,9 @@ alias pycharm-fix-keyboard='sudo killall -9 ibus-x11'
 alias disk='df -h'
 alias disk-size='du -hs'
 alias install='sudo apt-get install'
+
+alias hibernate='systemctl hibernate'
+alias suspend='systemctl suspend'
 
 # Home assistant
 alias ha-restart='sudo systemctl restart home-assistant'

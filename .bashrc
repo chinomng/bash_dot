@@ -30,5 +30,11 @@ export WORKON_HOME=~/Envs
 source ~/.local/bin/virtualenvwrapper.sh
 
 # xinput -list | grep -i key
-setxkbmap latam
+# ThinkPad Extra Buttons id=14 [slave  keyboard (3)]
+x1_id=$(xinput list | sed -n 's/.*ThinkPad Extra Buttons.*id=\([0-9]*\).*keyboard.*/\1/p')
+setxkbmap -device $x1_id -layout us -variant altgr-intl -option nodeadkeys
+# HID 04f3:0103 id=16 [slave  keyboard (3)]
+genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\1/p')
+setxkbmap -device $genius_id -layout es 
+
 

@@ -1,3 +1,7 @@
 *~
 *.pyc
 *.restclient
+
+src/
+
+src/mozio-commons/

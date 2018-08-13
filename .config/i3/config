@@ -13,9 +13,9 @@ set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:DejaVu Sans Mono 22
-font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 23
-font pango:Terminus 23px
+font pango:DejaVu Sans Mono 35
+font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 35
+font pango:Terminus 35px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -92,15 +92,15 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move workspace 1
-bindsym $mod+Shift+2 move workspace 2
-bindsym $mod+Shift+3 move workspace 3
-bindsym $mod+Shift+4 move workspace 4
-bindsym $mod+Shift+5 move workspace 5
-bindsym $mod+Shift+6 move workspace 6
-bindsym $mod+Shift+7 move workspace 7
-bindsym $mod+Shift+8 move workspace 8
-bindsym $mod+Shift+9 move workspace 9
+bindsym $mod+Shift+1 move workspace 1; workspace 1
+bindsym $mod+Shift+2 move workspace 2; workspace 2
+bindsym $mod+Shift+3 move workspace 3; workspace 3
+bindsym $mod+Shift+4 move workspace 4; workspace 4
+bindsym $mod+Shift+5 move workspace 5; workspace 5
+bindsym $mod+Shift+6 move workspace 6; workspace 6
+bindsym $mod+Shift+7 move workspace 7; workspace 7
+bindsym $mod+Shift+8 move workspace 8; workspace 8
+bindsym $mod+Shift+9 move workspace 9; workspace 9
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -158,8 +158,8 @@ bindsym XF86AudioLowerVolume exec amixer -q -c 1 set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q -c 1 set Master toggle
 
 # brightness keys
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 1 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 1 
 
 # move workspace between outputs
 bindsym $mod+y move workspace to output UP
@@ -182,6 +182,13 @@ bindsym Mod1+Shift+Tab workspace prev_on_output
 bindsym Mod1+q exec xrandr --output HDMI2 --off
 bindsym Mod1+w exec xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 
+# fast focus
+bindsym Control+1  exec runorraise.sh name "m.galan@mozio.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://gmail.com"
+
+bindsym Control+2  exec runorraise.sh name  WhatsApp "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --app=https://web.whatsapp.com/"
+
+bindsym Control+3  exec runorraise.sh name  Traductor "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+
 # monitors configuration
 exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 #exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
@@ -200,17 +207,17 @@ workspace 5 output eDP1
 assign [class="^slack$"] → 2
 assign [class="^mozio$"] → 3
 assign [class="^jetbrains-pycharm-ce$"] → 4
+assign [class="^jetbrains-pycharm$"] → 4
 assign [class="^Gedit$"] → 5
 assign [class="^chinomng$"] → 6
 
-exec --no-startup-id i3-msg 'workspace 1; exec terminator -l iats'
-exec --no-startup-id i3-msg 'workspace 1; exec terminator -l sandbox'
+exec --no-startup-id i3-msg 'workspace 1; exec terminator-docker-mozio'
 
 exec --no-startup-id i3-msg 'workspace 3; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio'
 
 exec --no-startup-id i3-msg 'workspace 2; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 2 --app=https://mozio.slack.com --class=slack'
 
-exec --no-startup-id i3-msg 'workspace 4; exec /home/chinomng/Downloads/pycharm/bin/pycharm.sh'
+exec --no-startup-id i3-msg 'workspace 4; exec /home/chinomng/Downloads/pycharm-2018.1.1/bin/pycharm.sh'
 
 exec --no-startup-id i3-msg 'workspace 5; exec gedit'
 
