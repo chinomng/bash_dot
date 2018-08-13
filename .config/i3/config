@@ -210,7 +210,10 @@ workspace 7 output HDMI2
 workspace 8 output HDMI2
 
 for_window [instance="terminator"] move to workspace 1
+for_window [instance="x-terminal-emulator"] move to workspace 1
 for_window [instance="mozio.slack.com"] move to workspace 2
+for_window [instance="google-chrome.*Profile.1"] move to workspace 3
+for_window [instance="google-chrome.*Profile.2"] move to workspace 3
 for_window [class="^mozio$"] move to workspace 3
 for_window [class="^jetbrains-pycharm$"] move to workspace 4
 for_window [class="^Gedit$"] move to workspace 5
@@ -223,14 +226,14 @@ for_window [instance="translate.google.com"] move to workspace 8
 for_window [instance="web.whatsapp.com"] move to workspace 8
 
 # Apps to be opened on start up
-exec --no-startup-id i3-msg 'workspace 1; exec terminator-docker-mozio'
+exec --no-startup-id i3-msg 'exec terminator-docker-mozio'
 
-exec --no-startup-id i3-msg 'workspace 3; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio'
+exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio'
 
-exec --no-startup-id i3-msg 'workspace 2; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 2 --app=https://mozio.slack.com --class=slack'
+exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --app=https://mozio.slack.com --class=slack'
 
-exec --no-startup-id i3-msg 'workspace 4; exec /home/chinomng/Downloads/pycharm-2018.1.1/bin/pycharm.sh'
+exec --no-startup-id i3-msg 'exec /home/chinomng/Downloads/pycharm-2018.1.1/bin/pycharm.sh'
 
-exec --no-startup-id i3-msg 'workspace 5; exec gedit'
+exec --no-startup-id i3-msg 'exec gedit'
 
-exec --no-startup-id i3-msg 'workspace 6; exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --class=chinomng'
+exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --class=chinomng'
