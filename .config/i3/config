@@ -183,11 +183,11 @@ bindsym Mod1+q exec xrandr --output HDMI2 --off
 bindsym Mod1+w exec xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 
 # fast focus
-bindsym Control+1  exec runorraise.sh name "m.galan@mozio.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://gmail.com"
+bindsym Control+1  exec runorraise.sh instance "gmail.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://gmail.com"
 
-bindsym Control+2  exec runorraise.sh name  WhatsApp "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --app=https://web.whatsapp.com/"
+bindsym Control+2  exec runorraise.sh instance "web.whatsapp.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --app=https://web.whatsapp.com/"
 
-bindsym Control+3  exec runorraise.sh name  Traductor "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+bindsym Control+3  exec runorraise.sh instance "translate.google.com" "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
 
 # monitors configuration
 exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
@@ -210,6 +210,9 @@ assign [class="^jetbrains-pycharm-ce$"] → 4
 assign [class="^jetbrains-pycharm$"] → 4
 assign [class="^Gedit$"] → 5
 assign [class="^chinomng$"] → 6
+assign [class="^Postman$"] → 7
+# TODO: Check this
+# for_window [class="Spotify"] move to workspace 2
 
 exec --no-startup-id i3-msg 'workspace 1; exec terminator-docker-mozio'
 
