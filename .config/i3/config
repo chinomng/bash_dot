@@ -183,13 +183,18 @@ bindsym Mod1+q exec xrandr --output HDMI2 --off
 bindsym Mod1+w exec xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
 
 # fast focus
-bindsym Control+1  exec runorraise.sh instance "gmail.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://gmail.com"
+bindsym $mod+F1  exec runorraise.sh instance "gmail.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://gmail.com"
 
-bindsym Control+2  exec runorraise.sh instance "web.whatsapp.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --app=https://web.whatsapp.com/"
+bindsym $mod+F2  exec runorraise.sh instance "web.whatsapp.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --app=https://web.whatsapp.com/"
 
-bindsym Control+3  exec runorraise.sh instance "translate.google.com" "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+bindsym $mod+F3  exec runorraise.sh instance "translate.google.com" "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
 
-bindsym Control+4  exec runorraise.sh instance "inbox.google.com" "google-chrome --app=https://inbox.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+bindsym $mod+F4  exec runorraise.sh instance "inbox.google.com" "google-chrome --app=https://inbox.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+
+bindsym $mod+F5  exec runorraise.sh instance "www.youtube.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://www.youtube.com/"
+
+bindsym $mod+F8 exec "python /home/chinomng/bash_dot/scripts/pylauncher.py"
+for_window [class="Tk"] floating enable focus
 
 # monitors configuration
 exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
@@ -224,6 +229,7 @@ for_window [instance="gmail.com"] move to workspace 8
 for_window [instance="inbox.google.com"] move to workspace 8
 for_window [instance="translate.google.com"] move to workspace 8
 for_window [instance="web.whatsapp.com"] move to workspace 8
+for_window [instance="www.youtube.com"] move to workspace 8
 
 # Apps to be opened on start up
 exec --no-startup-id i3-msg 'exec terminator-docker-mozio'
