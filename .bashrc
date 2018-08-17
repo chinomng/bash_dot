@@ -38,3 +38,5 @@ genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\
 setxkbmap -device $genius_id -layout es 
 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
