@@ -706,7 +706,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/mozio_auth;bash
+    custom_command = cd ~/mozio/mozio_auth;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -718,7 +718,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/django-mozio-auth-client;bash
+    custom_command = cd ~/mozio/django-mozio-auth-client;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -730,7 +730,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/mozio-commons;bash
+    custom_command = cd ~/mozio/mozio-commons;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -742,7 +742,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/data-entry;bash
+    custom_command = cd ~/mozio/data-entry;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -754,7 +754,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/mozio;bash
+    custom_command = cd ~/mozio/mozio;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -767,7 +767,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/ondemand;bash
+    custom_command = cd ~/mozio/ondemand;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -779,7 +779,7 @@
     background_color = "#ffffff"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/ondemand;bash
+    custom_command = cd ~/mozio/ondemand;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
@@ -791,7 +791,7 @@
     background_color = "#ffffdd"
     background_image = None
     copy_on_selection = True
-    custom_command = cd ~/mozio/mozio-search;bash
+    custom_command = cd ~/mozio/mozio-search;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
