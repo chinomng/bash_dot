@@ -42,11 +42,9 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 source ~/.shell/aliases
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-
+source ~/.oh-my-zsh
 source ~/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -54,14 +52,23 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle heroku
+antigen bundle git-extras
 antigen bundle pip
-antigen bundle lein
 antigen bundle sudo
 antigen bundle command-not-found
 
+antigen bundle pip
+antigen bundle python
+antigen bundle virtualenv
+
+antigen bundle docker
+
+antigen bundle autojump
+
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load the theme.
 antigen theme amuse
@@ -70,3 +77,10 @@ antigen theme amuse
 antigen apply
 
 
+# xinput -list | grep -i key
+# ThinkPad Extra Buttons id=14 [slave  keyboard (3)]
+x1_id=$(xinput list | sed -n 's/.*ThinkPad Extra Buttons.*id=\([0-9]*\).*keyboard.*/\1/p')
+setxkbmap -device $x1_id -layout us -variant altgr-intl -option nodeadkeys
+# HID 04f3:0103 id=16 [slave  keyboard (3)]
+genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\1/p')
+setxkbmap -device $genius_id -layout es 
