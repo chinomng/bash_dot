@@ -52,6 +52,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
+antigen bundle django
 antigen bundle git-extras
 antigen bundle pip
 antigen bundle sudo
@@ -64,6 +65,10 @@ antigen bundle virtualenv
 antigen bundle docker
 
 antigen bundle autojump
+
+antigen bundle dirhistory
+
+antigen bundle web-search
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -84,3 +89,4 @@ setxkbmap -device $x1_id -layout us -variant altgr-intl -option nodeadkeys
 # HID 04f3:0103 id=16 [slave  keyboard (3)]
 genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\1/p')
 setxkbmap -device $genius_id -layout es 
+

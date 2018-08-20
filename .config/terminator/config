@@ -5,6 +5,10 @@
   title_transmit_bg_color = "#ff1800"
   title_use_system_font = False
 [keybindings]
+  go_down = <Primary><Alt>Down
+  go_left = <Primary><Alt>Left
+  go_right = <Primary><Alt>Right
+  go_up = <Primary><Alt>Up
 [layouts]
   [[default]]
     [[[child1]]]
