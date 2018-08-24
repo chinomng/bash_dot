@@ -12,6 +12,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
+setopt hist_save_no_dups
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -35,7 +37,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' menu yes select
+zstyle ':completion:*' menu select
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
@@ -43,6 +45,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 source ~/.shell/aliases
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 source ~/.oh-my-zsh
 source ~/antigen.zsh
@@ -69,6 +72,8 @@ antigen bundle autojump
 antigen bundle dirhistory
 
 antigen bundle web-search
+
+antigen bundle common-aliases
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting

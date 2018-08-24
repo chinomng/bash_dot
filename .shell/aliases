@@ -76,9 +76,10 @@ alias pull='git pull'
 alias greset='git reset --hard'
 alias st='git status'
 alias co='git checkout'
-alias pr='hub pull-request -b staging'
 alias staging='greset;git co staging;git pull'
 alias master='greset;git co master;git pull'
+alias pr='push;hub pull-request -b staging'
+alias pr-master='push;hub pull-request -b master'
 
 # sha1=origin/pr/<prnumber>/merge
 

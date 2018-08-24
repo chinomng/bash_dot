@@ -28,7 +28,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = Mozio
+      title = Auth
       type = Window
     [[[child1]]]
       order = 0
@@ -73,7 +73,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = Mozio
+      title = "Auth Client"
       type = Window
     [[[child1]]]
       order = 0
@@ -118,7 +118,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = Mozio
+      title = Commons
       type = Window
     [[[child1]]]
       order = 0
@@ -163,7 +163,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = Mozio
+      title = DE
       type = Window
     [[[child1]]]
       order = 0
@@ -253,7 +253,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = Mozio
+      title = Ondemand
       type = Window
     [[[child1]]]
       order = 0
@@ -298,7 +298,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = Mozio
+      title = Search
       type = Window
     [[[child1]]]
       order = 0
