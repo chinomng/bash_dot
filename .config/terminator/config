@@ -1,4 +1,5 @@
 [global_config]
+  borderless = True
   enabled_plugins = InactivityWatch, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
   title_font = Monospace 13
@@ -73,7 +74,7 @@
       parent = ""
       position = 0:1124
       size = 1596, 808
-      title = "Auth Client"
+      title = Auth Client
       type = Window
     [[[child1]]]
       order = 0
@@ -337,131 +338,110 @@
 [profiles]
   [[default]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
+    cursor_color = "#000000"
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 500000
-    use_system_font = False
-  [[notifications]]
-    background_color = "#ffffdd"
-    background_image = None
-    copy_on_selection = True
-    custom_command = cd ~/mozio/notifications;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scroll_on_output = False
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[notifications_client]]
-    background_color = "#ffffdd"
-    background_image = None
-    copy_on_selection = True
-    custom_command = cd ~/mozio/notifications-client;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scroll_on_output = False
-    scrollback_lines = 50000
-    use_custom_command = True
     use_system_font = False
   [[auth]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/mozio_auth;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[auth_client]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/django-mozio-auth-client;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[commons]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/mozio-commons;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[data_entry]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/data-entry;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[mozio]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/mozio;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
+    scrollback_lines = 50000
+    use_custom_command = True
+    use_system_font = False
+  [[notifications]]
+    background_color = "#ffffdd"
+    copy_on_selection = True
+    custom_command = cd ~/mozio/notifications;zsh
+    exit_action = hold
+    font = Monospace 14
+    foreground_color = "#000000"
+    scrollback_lines = 50000
+    use_custom_command = True
+    use_system_font = False
+  [[notifications_client]]
+    background_color = "#ffffdd"
+    copy_on_selection = True
+    custom_command = cd ~/mozio/notifications-client;zsh
+    exit_action = hold
+    font = Monospace 14
+    foreground_color = "#000000"
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[ondemand]]
     allow_bold = False
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/ondemand;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[production]]
     background_color = "#ffffff"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/ondemand;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False
   [[search]]
     background_color = "#ffffdd"
-    background_image = None
     copy_on_selection = True
     custom_command = cd ~/mozio/mozio-search;zsh
     exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
-    scroll_on_output = False
     scrollback_lines = 50000
     use_custom_command = True
     use_system_font = False

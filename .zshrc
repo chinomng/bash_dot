@@ -63,7 +63,9 @@ antigen bundle command-not-found
 
 antigen bundle pip
 antigen bundle python
+
 antigen bundle virtualenv
+antigen bundle virtualenvwrapper
 
 antigen bundle docker
 
@@ -75,17 +77,30 @@ antigen bundle web-search
 
 antigen bundle common-aliases
 
+LP_ENABLE_RUNTIME=1
+LP_ENABLE_TIME=1
+antigen bundle nojhan/liquidprompt
+
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load the theme.
-antigen theme amuse
+antigen theme tonyseek/oh-my-zsh-seeker-theme seeker
+
+#antigen theme amuse
 
 # Tell Antigen that you're done.
 antigen apply
 
+export WORKON_HOME=~/Envs
+source ~/.local/bin/virtualenvwrapper.sh
+
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+
+LP_PS1_POSTFIX="
+> "
 
 # xinput -list | grep -i key
 # ThinkPad Extra Buttons id=14 [slave  keyboard (3)]

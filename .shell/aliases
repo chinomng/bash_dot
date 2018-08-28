@@ -26,8 +26,8 @@ alias commons-add-link='ln -s ../mozio-commons/mozio_commons/'
 alias commons-rm-link='rm mozio_commons'
 
 # Docker
-alias dc-pull='`aws ecr get-login  --region us-east-1` && docker-compose pull'
-alias dc-pull-all='`aws ecr get-login  --region us-east-1` && docker-compose -f /home/chinomng/mozio/mozio/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/ondemand/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/data-entry/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/mozio-search/docker-compose.yml pull'
+alias dc-pull='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose pull --no-parallel'
+alias dc-pull-all='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose -f /home/chinomng/mozio/mozio/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/ondemand/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/data-entry/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/mozio-search/docker-compose.yml --no-parallel pull'  
 alias dc-ps='docker-compose ps'
 alias dc-down='docker-compose down'
 alias dc-up='docker-compose up'
@@ -123,7 +123,7 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# enable color supporof ls and also add handy aliases
+# enable color suppor of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
