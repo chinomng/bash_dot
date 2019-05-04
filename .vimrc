@@ -35,6 +35,8 @@ Plugin 'jmcantrell/vim-virtualenv'
 
 Plugin 'fisadev/vim-isort'
 
+Plugin 'terryma/vim-expand-region'
+
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -61,12 +63,15 @@ map <C-b>  :YcmCompleter GoToDefinition<CR>
 nnoremap <space> za
 " map <C-n> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeTabsToggle<CR>
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+:imap jj <Esc>
 
 syntax on               " habilita la sintaxis
 set nu                  " muestra los numeros al costado
@@ -125,15 +130,28 @@ set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
 "set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
+set mouse=a		" Enable mouse usage (all modes)
 set cursorline
 set clipboard=unnamedplus
+set spell spelllang=en_us
+set hls is
+set noswapfile
+
+" more natural split opening
+set splitbelow
+set splitright
 
 " Source a global configuration file if available
 "if filereadable("/etc/vim/vimrc.local")
 "  source /etc/vim/vimrc.local
 "endif
 
+call expand_region#custom_text_objects('python', {
+      \ 'af' :1,
+      \ 'if' :1,
+      \ 'ac' :1,
+      \ 'ic' :1,
+      \ })
 
 "python with virtualenv support
 python3 << EOF

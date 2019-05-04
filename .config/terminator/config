@@ -244,6 +244,96 @@
       title = Logs
       type = Terminal
       uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
+  [[docker_notifications_client]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:1124
+      size = 1596, 808
+      title = Notifications client
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 594
+      ratio = 0.738242574257
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 739
+      ratio = 0.464598997494
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = notifications_client
+      title = Tests
+      type = Terminal
+      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = notifications_client
+      title = Status
+      type = Terminal
+      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+    [[[terminal5]]]
+      order = 1
+      parent = child1
+      profile = notifications_client
+      title = Logs
+      type = Terminal
+      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
+  [[docker_notifications]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:1124
+      size = 1596, 808
+      title = Notifications
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 594
+      ratio = 0.738242574257
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 739
+      ratio = 0.464598997494
+      type = HPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = notifications
+      title = Tests
+      type = Terminal
+      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = notifications
+      title = Status
+      type = Terminal
+      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
+    [[[terminal5]]]
+      order = 1
+      parent = child1
+      profile = notifications
+      title = Logs
+      type = Terminal
+      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
   [[docker_ondemand]]
     [[[child0]]]
       fullscreen = False
@@ -397,6 +487,7 @@
   [[notifications]]
     background_color = "#ffffdd"
     copy_on_selection = True
+    cursor_color = "#000000"
     custom_command = cd ~/mozio/notifications;zsh
     exit_action = hold
     font = Monospace 14
@@ -407,6 +498,7 @@
   [[notifications_client]]
     background_color = "#ffffdd"
     copy_on_selection = True
+    cursor_color = "#000000"
     custom_command = cd ~/mozio/notifications-client;zsh
     exit_action = hold
     font = Monospace 14

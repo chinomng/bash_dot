@@ -1,0 +1,3 @@
+#!/bin/bash
+
+terminator -b --layout=docker_notifications

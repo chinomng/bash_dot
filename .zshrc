@@ -3,6 +3,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 setopt histignorealldups sharehistory
+unsetopt share_history
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -100,13 +101,15 @@ source ~/.local/bin/virtualenvwrapper.sh
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 LP_PS1_POSTFIX="
-> "
+$ "
 
 # xinput -list | grep -i key
 # ThinkPad Extra Buttons id=14 [slave  keyboard (3)]
-x1_id=$(xinput list | sed -n 's/.*ThinkPad Extra Buttons.*id=\([0-9]*\).*keyboard.*/\1/p')
-setxkbmap -device $x1_id -layout us -variant altgr-intl -option nodeadkeys
+# x1_id=$(xinput list | sed -n 's/.*ThinkPad Extra Buttons.*id=\([0-9]*\).*keyboard.*/\1/p')
+# setxkbmap -device $x1_id -layout us -variant altgr-intl -option nodeadkeys
 # HID 04f3:0103 id=16 [slave  keyboard (3)]
-genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\1/p')
-setxkbmap -device $genius_id -layout es 
+#genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\1/p')
+#setxkbmap -device $genius_id -layout es 
+
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys
 

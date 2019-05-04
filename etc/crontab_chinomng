@@ -1,6 +1,8 @@
 # In order to import this jobs
 # crontab -u chinomng ~/bash_dot/etc/crontab_chinomng
 
+# grep CRON /var/log/syslog
+
 # minute hour day-of-month month day-of-week  command
-0  */5    * * * /home/chinomng/bash_dot/scripts/mozio-docker-compose-pull.sh > /home/chinomng/cron-output.txt
-0 9 * * * docker system prune > /home/chinomng/cron-output.txt
+0  */5    * * * DISPLAY=:0 notify-send "Pulling docker-compose ...";dc-pull-all 
+0 9 * * * docker system prune -f > /home/chinomng/cron-output.txt
