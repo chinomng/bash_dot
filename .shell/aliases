@@ -27,12 +27,19 @@ alias commons-rm-link='rm mozio_commons'
 
 # Docker
 alias dc-pull='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose pull --no-parallel'
+alias dcp=dc-pull
 alias dc-pull-all='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose -f /home/chinomng/mozio/mozio/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/ondemand/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/data-entry/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/mozio-search/docker-compose.yml --no-parallel pull'  
+alias dcpa=dc-pull-all
 alias dc-ps='docker-compose ps'
+alias dcps=dc-ps
 alias dc-down='docker-compose down'
+alias dcd=dc-down
 alias dc-up='docker-compose up'
+alias dcu=dc-up
 alias dc-logs='docker-compose logs -f'
+alias dcl=dc-logs
 alias dc-runserver='docker-compose up runserver'
+alias dcrs=dc-runserver
 
 alias docker-user-group='usermod -aG docker ${USER}'
 alias docker-ps='docker ps'
@@ -40,10 +47,12 @@ alias docker-prune='docker system prune'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
 alias dc-mozio-bash='docker-compose run mozio-bash'
+alias dcmb=dc-mozio-bash
 alias dc-mozio-runserver='docker-compose -f docker-compose.yml -f docker-compose.local.yml run --service-ports mozio'
 
 alias dc-tests='docker-compose run tests'
 alias dc-shell='docker-compose run --service-ports shell'
+alias dcs=dc-shell
 alias dc-web='docker-compose run --service-ports web'
 alias dc-bash='docker-compose run --service-ports bash'
 
@@ -68,6 +77,7 @@ alias git-my-branches='git branch | grep chinomng'
 alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%an, %cr"'
 alias git-undo-local-commit='git reset HEAD~'
 alias git-ssh-add='ssh-add ~/.ssh/id_rsa'
+alias gitsshadd=git-ssh-add
 alias diff='git diff'
 alias stash='git stash'
 alias pop='git stash pop'
@@ -80,6 +90,8 @@ alias staging='greset;git co staging;git pull'
 alias master='greset;git co master;git pull'
 alias pr='push;hub pull-request -b staging'
 alias pr-master='push;hub pull-request -b master'
+alias prm=pr-master
+alias branchm=branch-master
 
 # sha1=origin/pr/<prnumber>/merge
 
@@ -92,6 +104,7 @@ alias djtest='python manage.py test'
 
 alias youtube-dl='PYTHONPATH=$PYTHONPATH:/home/chinomng/Source/youtube-dl/ ~/Source/youtube-dl/bin/youtube-dl --restrict-filenames --retries 50 --continue'
 
+#alias cd='cd;ll'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
