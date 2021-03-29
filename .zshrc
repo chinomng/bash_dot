@@ -1,6 +1,6 @@
 # http://www.zsh.org/
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/bash_dot/bin:$PATH
 
 setopt histignorealldups sharehistory
 unsetopt share_history
@@ -113,3 +113,4 @@ $ "
 
 setxkbmap -layout us -variant altgr-intl -option nodeadkeys
 
+xset r rate 700 50

@@ -37,6 +37,13 @@ setxkbmap -device $x1_id -layout us -variant altgr-intl -option nodeadkeys
 genius_id=$(xinput list | sed -n 's/.*HID 04f3:0103.*id=\([0-9]*\).*keyboard.*/\1/p')
 setxkbmap -device $genius_id -layout es 
 
-
+xset r rate 700 50
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias python=python3
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
