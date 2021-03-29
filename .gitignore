@@ -2,7 +2,10 @@
 *.pyc
 *.restclient
 *.swp
+shiphero/Shiphero-API/docker/docker-compose.local.yml
+*.pre-commit-config.yaml
 
 src/
 
 src/mozio-commons/
+
