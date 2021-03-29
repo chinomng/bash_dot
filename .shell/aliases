@@ -26,24 +26,31 @@ alias commons-add-link='ln -s ../mozio-commons/mozio_commons/'
 alias commons-rm-link='rm mozio_commons'
 
 # Docker
-alias dc-pull='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose pull --no-parallel'
+alias aws_login='`aws ecr get-login --no-include-email --region us-east-1`'
+alias dc-pull='`aws ecr get-login  --region us-east-1 --no-include-email` && ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml pull'
 alias dcp=dc-pull
 alias dc-pull-all='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose -f /home/chinomng/mozio/mozio/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/ondemand/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/data-entry/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/mozio-search/docker-compose.yml --no-parallel pull'  
 alias dcpa=dc-pull-all
-alias dc-ps='docker-compose ps'
+alias dc-ps='ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml ps'
 alias dcps=dc-ps
-alias dc-down='docker-compose down'
+alias dc-down='ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml down'
 alias dcd=dc-down
-alias dc-up='docker-compose up'
+alias dc-up='ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml up -d'
 alias dcu=dc-up
-alias dc-logs='docker-compose logs -f'
+alias dc-logs='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml logs'
 alias dcl=dc-logs
-alias dc-runserver='docker-compose up runserver'
-alias dcrs=dc-runserver
+alias dc-build-app-endpoints='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml build app-endpoints'
+alias dcb=dc-build-app-endpoints
+alias dc-run-app-endpoints='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml run app-endpoints'
+alias dcr=dc-run-app-endpoints
+alias appendpoints-local='ENV=local && source ~/.zshrc && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml -f docker/docker-compose.local.yml  run --service-ports  app-endpoints'
+alias appendpoints-prod='ENV=prod && source ~/.zshrc && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml -f docker/docker-compose.local.yml  run --service-ports  app-endpoints'
 
 alias docker-user-group='usermod -aG docker ${USER}'
 alias docker-ps='docker ps'
 alias docker-prune='docker system prune'
+alias docker-remove-containers='docker rm -vf $(docker ps -a -q)'
+alias docker-remove-images='docker rmi -f $(docker images -a -q)'
 
 alias dc-mozio-tests='docker-compose run mozio-tests'
 alias dc-mozio-bash='docker-compose run mozio-bash'
@@ -70,6 +77,9 @@ alias docker-mozio-de-shell='docker exec -it mozio_de_1 bash -c "python manage.p
 
 alias docker-search-ondemand-shell='docker exec -it moziosearch_ondemand_1 bash -c "python manage.py shell"'
 alias docker-search-ondemand='docker exec -it moziosearch_ondemand_1 bash'
+
+# ShipHero
+alias vpn='sudo openvpn --config /home/chinomng/client.ovpn'
 
 # Git
 alias gui='git gui &'
@@ -154,7 +164,7 @@ alias supdate='sudo apt-get update'
 alias supgrade='sudo apt-get upgrade'
 
 alias bpython='fades -d bpython -d jedi -d watchdog -x bpython'
-alias docker-compose='fades -d docker-compose -x docker-compose'
+#alias docker-compose='fades -d docker-compose -x docker-compose'
 
 alias ff='firefox'
 
@@ -170,3 +180,5 @@ alias suspend='systemctl suspend'
 alias ha-restart='sudo systemctl restart home-assistant'
 alias ha-status='sudo systemctl status home-assistant -l'
 alias ha-edit='nano ~/bash_dot/.homeassistant/configuration.yaml'
+
+alias black='/home/chinomng/shiphero/black/bin/black --line-length 120 -t py27'
