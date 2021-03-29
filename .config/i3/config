@@ -161,7 +161,7 @@ bar {
 
 # Custom config
 bindsym control+mod1+l exec i3lock -c 000000
-bindsym Print exec gnome-screenshot --interactive
+bindsym Print exec flameshot gui
 
 # sound keys
 bindsym XF86AudioRaiseVolume exec amixer -q -c 1 set Master 2dB+ unmute
@@ -194,26 +194,29 @@ bindsym Mod1+Tab workspace next_on_output
 bindsym Mod1+Shift+Tab workspace prev_on_output
 
 bindsym Mod1+q exec xrandr --output HDMI-2 --off
-bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --above eDP-1 --output eDP-1 --auto --mode 1920x1080
+bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --rotate inverted --right-of eDP-1 --output eDP-1 --auto --mode 1360x768
+bindsym Mod1+e exec xrandr --output HDMI-2 --auto --mode 1920x1080 --rotate inverted --output eDP-1 --off
 
 # fast focus
-bindsym $mod+F1  exec runorraise.sh instance "gmail.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://gmail.com"
+bindsym $mod+F1  exec runorraise.sh instance "gmail.com" "/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/ --class=shiphero --app=https://gmail.com"
 
-bindsym $mod+F2  exec runorraise.sh instance "web.whatsapp.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --app=https://web.whatsapp.com/"
+bindsym $mod+F2  exec runorraise.sh instance "web.whatsapp.com" "/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/ --app=https://web.whatsapp.com/"
 
-bindsym $mod+F3  exec runorraise.sh instance "translate.google.com" "google-chrome --app=https://translate.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+bindsym $mod+F3  exec runorraise.sh instance "translate.google.com" "/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/ --app=https://translate.google.com/"
 
-bindsym $mod+F4  exec runorraise.sh instance "inbox.google.com" "google-chrome --app=https://inbox.google.com/ --user-data-dir=/home/chinomng/.config/google-chrome/Default/"
+bindsym $mod+F4  exec runorraise.sh instance "inbox.google.com" "/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/ --app=https://inbox.google.com/"
 
-bindsym $mod+F5  exec runorraise.sh instance "www.youtube.com" "google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio --app=https://www.youtube.com/"
+bindsym $mod+F5  exec runorraise.sh instance "www.youtube.com" "/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/ --app=https://www.youtube.com/"
 
 bindsym $mod+F6  exec runorraise.sh instance "pcmanfm" pcmanfm
+
+bindsym $mod+F7  exec runorraise.sh instance "jetbrains-pycharm" /home/chinomng/Downloads/pycharm-2018.1.1/bin/pycharm.sh
 
 bindsym $mod+F8 exec "python /home/chinomng/bash_dot/scripts/pylauncher.py"
 for_window [class="Tk"] floating enable focus
 
 # monitors configuration
-exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --above eDP1 --output eDP1 --auto --mode 1600x900
+exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --rotate inverted --above eDP1 --output eDP1 --auto --mode 1600x900
 #exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
 
 exec --no-startup-id xset m 1 1
@@ -232,11 +235,12 @@ workspace 8 output HDMI2
 
 for_window [instance="terminator"] move to workspace 1
 for_window [instance="x-terminal-emulator"] move to workspace 1
-for_window [instance="mozio.slack.com"] move to workspace 2
+for_window [instance="shiphero.slack.com"] move to workspace 2
 for_window [instance="google-chrome.*Profile.1"] move to workspace 3
 for_window [instance="google-chrome.*Profile.2"] move to workspace 3
-for_window [class="^mozio$"] move to workspace 3
+for_window [class="^shiphero$"] move to workspace 3
 for_window [class="^jetbrains-pycharm$"] move to workspace 4
+for_window [class="^jetbrains-pycharm-ce$"] move to workspace 4
 for_window [class="^Gedit$"] move to workspace 5
 for_window [class="^Pcmanfm$"] move to workspace 8
 for_window [class="^chinomng$"] move to workspace 6
@@ -249,14 +253,18 @@ for_window [instance="web.whatsapp.com"] move to workspace 8
 for_window [instance="www.youtube.com"] move to workspace 8
 
 # Apps to be opened on start up
-exec --no-startup-id i3-msg 'exec terminator-docker-mozio'
+#exec --no-startup-id i3-msg 'exec terminator-docker-mozio'
+exec --no-startup-id i3-msg 'exec terminator'
 
-exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=mozio'
+# exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=shiphero'
+exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --class=shiphero'
 
-exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --app=https://mozio.slack.com --class=slack'
+# exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --app=https://shiphero.slack.com --class=slack'
+exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --app=https://shiphero.slack.com --class=slack'
 
-exec --no-startup-id i3-msg 'exec /home/chinomng/Downloads/pycharm-2018.1.1/bin/pycharm.sh'
+exec --no-startup-id i3-msg 'exec /home/chinomng/Downloads/pycharm-2020.3/bin/pycharm.sh'
 
 exec --no-startup-id i3-msg 'exec gedit'
 
-exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --class=chinomng'
+# exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --class=chinomng'
+exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/  --class=chinomng'
