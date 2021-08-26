@@ -12,71 +12,24 @@ alias sutext='gksudo gedit &'
 alias untarz='tar -xzf'
 alias untarj='tar -xjf'
 
-# Mozio
-alias mozio='cd ~/mozio/mozio;workon mozio'
-alias ondemand='cd ~/mozio/ondemand;workon ondemand'
-alias commons='cd ~/mozio/mozio-commons;workon mozio-commons'
-alias ondemand-dev-settings='pycclean;rm ondemand/settings/active.py;ln -s dev.py ondemand/settings/active.py'
-alias ondemand-docker-settings='pycclean;rm ondemand/settings/active.py;ln -s docker.py ondemand/settings/active.py'
-alias ondemand-staging-settings='pycclean;rm ondemand/settings/active.py;ln -s staging.py ondemand/settings/active.py'
-alias ondemand-production-settings='pycclean;rm ondemand/settings/active.py;ln -s production.py ondemand/settings/active.py'
-
-alias mozio-requirements='pip install --exists-action i -r requirements/dev.txt;python manage.py migrate;'
-alias commons-add-link='ln -s ../mozio-commons/mozio_commons/'
-alias commons-rm-link='rm mozio_commons'
-
 # Docker
 alias aws_login='`aws ecr get-login --no-include-email --region us-east-1`'
 alias dc-pull='`aws ecr get-login  --region us-east-1 --no-include-email` && ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml pull'
-alias dcp=dc-pull
 alias dc-pull-all='`aws ecr get-login  --region us-east-1 --no-include-email` && docker-compose -f /home/chinomng/mozio/mozio/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/ondemand/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/data-entry/docker-compose.yml pull && docker-compose -f /home/chinomng/mozio/mozio-search/docker-compose.yml --no-parallel pull'  
-alias dcpa=dc-pull-all
 alias dc-ps='ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml ps'
-alias dcps=dc-ps
 alias dc-down='ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml down'
-alias dcd=dc-down
 alias dc-up='ENV=local TEMP=/tmp docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml up -d'
-alias dcu=dc-up
 alias dc-logs='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml logs'
-alias dcl=dc-logs
-alias dc-build-app-endpoints='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml build app-endpoints'
-alias dcb=dc-build-app-endpoints
-alias dc-run-app-endpoints='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml run app-endpoints'
-alias dcr=dc-run-app-endpoints
-alias appendpoints-local='ENV=local && source ~/.zshrc && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml -f docker/docker-compose.local.yml  run --service-ports  app-endpoints'
-alias appendpoints-prod='ENV=prod && source ~/.zshrc && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml -f docker/docker-compose.local.yml  run --service-ports  app-endpoints'
+alias dc-build-app-endpoints='ENV=local TEMP=/tmp docker-compose -f docker/docker-compose.yml -f ./docker/docker-compose.app-endpoints.yml build --no-cache --pull app-endpoints'
+alias appendpoints-local='ENV=local && source ~/.shiphero && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml  run --service-ports  app-endpoints bash'
+alias appendpoints-dev='ENV=dev && source ~/.shiphero && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml  run --service-ports  app-endpoints bash'
+alias appendpoints-prod='ENV=prod && source ~/.shiphero && TEMP=/tmp docker-compose -f docker/docker-compose.yml -f docker/docker-compose.app-endpoints.yml  run --service-ports  app-endpoints bash'
 
 alias docker-user-group='usermod -aG docker ${USER}'
 alias docker-ps='docker ps'
 alias docker-prune='docker system prune'
 alias docker-remove-containers='docker rm -vf $(docker ps -a -q)'
 alias docker-remove-images='docker rmi -f $(docker images -a -q)'
-
-alias dc-mozio-tests='docker-compose run mozio-tests'
-alias dc-mozio-bash='docker-compose run mozio-bash'
-alias dcmb=dc-mozio-bash
-alias dc-mozio-runserver='docker-compose -f docker-compose.yml -f docker-compose.local.yml run --service-ports mozio'
-
-alias dc-tests='docker-compose run tests'
-alias dc-shell='docker-compose run --service-ports shell'
-alias dcs=dc-shell
-alias dc-web='docker-compose run --service-ports web'
-alias dc-bash='docker-compose run --service-ports bash'
-
-alias docker-ondemand-auth='docker exec -it ondemand_auth_1 bash'
-alias docker-ondemand-auth-shell='docker exec -it ondemand_auth_1 bash -c "python manage.py shell"'
-alias docker-ondemand-de='docker exec -it ondemand_de_1 bash'
-alias docker-ondemand-de-shell='docker exec -it ondemand_de_1 bash -c "python manage.py shell"'
-alias docker-ondemand-mozio='docker exec -it ondemand_mozio_1 bash'
-alias docker-ondemand-mozio-shell='docker exec -it ondemand_mozio_1 bash -c "python manage.py shell"'
-
-alias docker-mozio-auth='docker exec -it mozio_auth_1 bash'
-alias docker-mozio-auth-shell='docker exec -it mozio_auth_1 bash -c "python manage.py shell"'
-alias docker-mozio-de='docker exec -it mozio_de_1 bash'
-alias docker-mozio-de-shell='docker exec -it mozio_de_1 bash -c "python manage.py shell"'
-
-alias docker-search-ondemand-shell='docker exec -it moziosearch_ondemand_1 bash -c "python manage.py shell"'
-alias docker-search-ondemand='docker exec -it moziosearch_ondemand_1 bash'
 
 # ShipHero
 alias vpn='sudo openvpn --config /home/chinomng/client.ovpn'
@@ -112,8 +65,6 @@ alias djmigrate='python manage.py migrate'
 alias djmakemigrations='python manage.py makemigrations'
 alias djtest='python manage.py test'
 
-alias youtube-dl='PYTHONPATH=$PYTHONPATH:/home/chinomng/Source/youtube-dl/ ~/Source/youtube-dl/bin/youtube-dl --restrict-filenames --retries 50 --continue'
-
 #alias cd='cd;ll'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -127,15 +78,6 @@ alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 alias servesmtp="python -m smtpd -n -c DebuggingServer localhost:1025"
 
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
-
-alias pdbclean='find . -name "*.py" -exec sed -ri "/import ipdb;ipdb.set_trace()/d" {} \;'
-alias ipdbclean='pdbclean'
-alias pycclean='find . -name "*.pyc" -exec rm {} \;'
-
-alias isort-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs isort'
-alias yapf-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs yapf --in-place --style ~/.style.yapf --exclude "*migrations*" --exclude "*settings*" --exclude "*scripts*"'
-alias unify-staging='(git diff --name-only;git diff --name-only staging...) | grep .py |  xargs unify -ir'
-alias styles-staging='isort-staging;yapf-staging;unify-staging'
 
 # some ls aliases
 alias ll='ls -alF'
@@ -158,27 +100,19 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias e='emacsclient -n'
-alias emacs='~/emacs-configuration/tryit.sh'
-alias supdate='sudo apt-get update'
-alias supgrade='sudo apt-get upgrade'
-
 alias bpython='fades -d bpython -d jedi -d watchdog -x bpython'
 #alias docker-compose='fades -d docker-compose -x docker-compose'
 
-alias ff='firefox'
-
-alias pycharm-fix-keyboard='sudo killall -9 ibus-x11'
 alias disk='df -h'
 alias disk-size='du -hs'
-alias install='sudo apt-get install'
 
 alias hibernate='systemctl hibernate'
 alias suspend='systemctl suspend'
 
-# Home assistant
-alias ha-restart='sudo systemctl restart home-assistant'
-alias ha-status='sudo systemctl status home-assistant -l'
-alias ha-edit='nano ~/bash_dot/.homeassistant/configuration.yaml'
+# applications
+alias browser_slack='/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --app=https://shiphero.slack.com --class=slack'
+alias browser_shiphero='/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --class=shiphero'
+alias browser_chinomng='/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/  --class=chinomng'
+alias pycharm='/home/chinomng/Downloads/pycharm-2020.3/bin/pycharm.sh'
 
-alias black='/home/chinomng/shiphero/black/bin/black --line-length 120 -t py27'
+

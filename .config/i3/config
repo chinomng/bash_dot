@@ -15,7 +15,10 @@ set $mod Mod4
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font pango:DejaVu Sans Mono 45
 font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 45
-font pango:Terminus 45px
+
+# window title
+font pango:Terminus 15px
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -157,6 +160,7 @@ bindsym $mod+a mode "App launch"
 # finds out, if available)
 bar {
         status_command i3status
+        font pango:Terminus 12
 }
 
 # Custom config
@@ -176,7 +180,9 @@ bindsym XF86MonBrightnessDown exec echo $((`cat /sys/class/backlight/intel_backl
 #bindsym XF86MonBrightnessDown exec --no-startup-id brightlight -d 20
 
 # move workspace between outputs
-bindsym $mod+y move workspace to output UP
+# bindsym $mod+y move workspace to output left
+# bindsym $mod+y move workspace to next
+bindsym $mod+y  exec ~/bash_dot/bin/i3MoveNextOutput.py
 
 # applets
 exec --no-startup-id nm-applet # network
@@ -194,8 +200,9 @@ bindsym Mod1+Tab workspace next_on_output
 bindsym Mod1+Shift+Tab workspace prev_on_output
 
 bindsym Mod1+q exec xrandr --output HDMI-2 --off
-bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --rotate inverted --right-of eDP-1 --output eDP-1 --auto --mode 1360x768
-bindsym Mod1+e exec xrandr --output HDMI-2 --auto --mode 1920x1080 --rotate inverted --output eDP-1 --off
+#bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --right-of eDP-1 --output eDP-1 --auto --mode 1360x768
+bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --left-of HDMI-1 --output HDMI-1 --auto --mode 1920x1080 --above eDP-1 --output eDP-1 --auto --mode 1360x768
+bindsym Mod1+e exec xrandr --output HDMI-2 --auto --mode 1920x1080 --output eDP-1 --off
 
 # fast focus
 bindsym $mod+F1  exec runorraise.sh instance "gmail.com" "/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/ --class=shiphero --app=https://gmail.com"
@@ -210,28 +217,26 @@ bindsym $mod+F5  exec runorraise.sh instance "www.youtube.com" "/usr/bin/brave-b
 
 bindsym $mod+F6  exec runorraise.sh instance "pcmanfm" pcmanfm
 
-bindsym $mod+F7  exec runorraise.sh instance "jetbrains-pycharm" /home/chinomng/Downloads/pycharm-2018.1.1/bin/pycharm.sh
-
 bindsym $mod+F8 exec "python /home/chinomng/bash_dot/scripts/pylauncher.py"
 for_window [class="Tk"] floating enable focus
 
 # monitors configuration
-exec --no-startup-id xrandr --output HDMI2 --auto --mode 1920x1080 --rotate inverted --above eDP1 --output eDP1 --auto --mode 1600x900
-#exec --no-startup-id xrandr --output eDP1 --auto --mode 1600x900
+exec --no-startup-id xrandr --output HDMI-2 --auto --mode 1920x1080 --left-of HDMI-1 --output HDMI-1 --auto --mode 1920x1080 --above eDP-1 --output eDP-1 --auto --mode 1360x768
 
 exec --no-startup-id xset m 1 1
 
 # load layouts. eDP1 is the laptop, HDMI2 is the external monitor
 workspace_layout tabbed
 
-workspace 1 output eDP1
-workspace 2 output eDP1
-workspace 3 output HDMI2
-workspace 4 output HDMI2
-workspace 5 output eDP1
-workspace 6 output HDMI2
-workspace 7 output HDMI2
-workspace 8 output HDMI2
+workspace 1 output HDMI-2
+workspace 2 output HDMI-1
+workspace 3 output HDMI-2
+workspace 4 output HDMI-2
+workspace 5 output HDMI-2
+workspace 6 output HDMI-2
+workspace 7 output HDMI-2
+workspace 8 output HDMI-2
+workspace 9 output HDMI-2
 
 for_window [instance="terminator"] move to workspace 1
 for_window [instance="x-terminal-emulator"] move to workspace 1
@@ -253,18 +258,9 @@ for_window [instance="web.whatsapp.com"] move to workspace 8
 for_window [instance="www.youtube.com"] move to workspace 8
 
 # Apps to be opened on start up
-#exec --no-startup-id i3-msg 'exec terminator-docker-mozio'
 exec --no-startup-id i3-msg 'exec terminator'
-
-# exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --class=shiphero'
 exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --class=shiphero'
-
-# exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Profile\ 1 --app=https://shiphero.slack.com --class=slack'
 exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --app=https://shiphero.slack.com --class=slack'
-
 exec --no-startup-id i3-msg 'exec /home/chinomng/Downloads/pycharm-2020.3/bin/pycharm.sh'
-
 exec --no-startup-id i3-msg 'exec gedit'
-
-# exec --no-startup-id i3-msg 'exec google-chrome --user-data-dir=/home/chinomng/.config/google-chrome/Default/ --class=chinomng'
 exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/  --class=chinomng'
