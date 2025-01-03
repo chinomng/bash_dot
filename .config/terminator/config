@@ -1,539 +1,72 @@
 [global_config]
   borderless = True
-  enabled_plugins = InactivityWatch, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  suppress_multiple_term_dialog = True
-  title_font = Monospace 13
   title_transmit_bg_color = "#ff1800"
+  enabled_plugins = TerminalShot, TestPlugin, ActivityWatch, InactivityWatch, APTURLHandler
+  suppress_multiple_term_dialog = True
   title_use_system_font = False
+  title_font = Monospace 13
 [keybindings]
+  go_up = <Primary><Alt>Up
   go_down = <Primary><Alt>Down
   go_left = <Primary><Alt>Left
   go_right = <Primary><Alt>Right
-  go_up = <Primary><Alt>Up
-[layouts]
-  [[default]]
-    [[[child1]]]
-      parent = window0
-      profile = default
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
-  [[docker_auth]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Auth
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = auth
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = auth
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = auth
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_auth_client]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Auth Client
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = auth_client
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = auth_client
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = auth_client
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_commons]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Commons
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = commons
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = commons
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = commons
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_data_entry]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = DE
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = data_entry
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = data_entry
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = data_entry
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_mozio]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Mozio
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = mozio
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = mozio
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = mozio
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_notifications_client]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Notifications client
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = notifications_client
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = notifications_client
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = notifications_client
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_notifications]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Notifications
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = notifications
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = notifications
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = notifications
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_ondemand]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Ondemand
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = ondemand
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = ondemand
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = ondemand
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-  [[docker_search]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:1124
-      size = 1596, 808
-      title = Search
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 594
-      ratio = 0.738242574257
-      type = VPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 739
-      ratio = 0.464598997494
-      type = HPaned
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = search
-      title = Tests
-      type = Terminal
-      uuid = 3e699312-65e6-4b1c-b8b5-63d63159706f
-    [[[terminal4]]]
-      order = 1
-      parent = child2
-      profile = search
-      title = Status
-      type = Terminal
-      uuid = fecd1308-03ac-4b01-adbb-3b1772e9a45f
-    [[[terminal5]]]
-      order = 1
-      parent = child1
-      profile = search
-      title = Logs
-      type = Terminal
-      uuid = cbd5008b-27ad-4ddd-9101-1aa590f66576
-[plugins]
 [profiles]
   [[default]]
     background_color = "#ffffdd"
-    copy_on_selection = True
     cursor_color = "#000000"
     font = Monospace 14
     foreground_color = "#000000"
     scrollback_lines = 500000
     use_system_font = False
-  [[auth]]
-    background_color = "#ffffdd"
     copy_on_selection = True
-    custom_command = cd ~/mozio/mozio_auth;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[auth_client]]
+  [[monorepo]]
     background_color = "#ffffdd"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/django-mozio-auth-client;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[commons]]
-    background_color = "#ffffdd"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/mozio-commons;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[data_entry]]
-    background_color = "#ffffdd"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/data-entry;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[mozio]]
-    background_color = "#ffffdd"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/mozio;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[notifications]]
-    background_color = "#ffffdd"
-    copy_on_selection = True
     cursor_color = "#000000"
-    custom_command = cd ~/mozio/notifications;zsh
-    exit_action = hold
     font = Monospace 14
     foreground_color = "#000000"
     scrollback_lines = 50000
+    exit_action = hold
     use_custom_command = True
+    custom_command = cd ~/shiphero/ShipHero-API;zsh;workon shiphero;
     use_system_font = False
-  [[notifications_client]]
-    background_color = "#ffffdd"
     copy_on_selection = True
-    cursor_color = "#000000"
-    custom_command = cd ~/mozio/notifications-client;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[ondemand]]
-    allow_bold = False
-    background_color = "#ffffdd"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/ondemand;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[production]]
-    background_color = "#ffffff"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/ondemand;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
-  [[search]]
-    background_color = "#ffffdd"
-    copy_on_selection = True
-    custom_command = cd ~/mozio/mozio-search;zsh
-    exit_action = hold
-    font = Monospace 14
-    foreground_color = "#000000"
-    scrollback_lines = 50000
-    use_custom_command = True
-    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = monorepo
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[docker_monorepo]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:22
+      maximised = False
+      fullscreen = False
+      size = 1916, 1032
+      title = chinomng@extreme:~/shiphero/ShipHero-API
+      last_active_term = a5d407ff-2768-4028-8669-c113a20a6e93
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 514
+      ratio = 0.5004868549172347
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = monorepo
+      uuid = a5d407ff-2768-4028-8669-c113a20a6e93
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = monorepo
+      uuid = e0950125-361a-49c8-bd74-b5e5b1fcf374
+[plugins]

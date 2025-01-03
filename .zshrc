@@ -45,11 +45,17 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 source ~/.shell/aliases
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
-
 source ~/.oh-my-zsh
 source ~/antigen.zsh
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
+
+# virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+export WORKON_HOME=~/.virtualenvs
+source ~/.local/bin/virtualenvwrapper.sh
+
+export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -61,6 +67,7 @@ antigen bundle git-extras
 antigen bundle pip
 antigen bundle sudo
 antigen bundle command-not-found
+antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle pip
 antigen bundle python
@@ -95,10 +102,7 @@ antigen theme tonyseek/oh-my-zsh-seeker-theme seeker
 # Tell Antigen that you're done.
 antigen apply
 
-export WORKON_HOME=~/Envs
-source ~/.local/bin/virtualenvwrapper.sh
 
-export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 LP_PS1_POSTFIX="
 $ "
@@ -114,3 +118,6 @@ $ "
 setxkbmap -layout us -variant altgr-intl -option nodeadkeys
 
 xset r rate 700 50
+
+# Load ShipHero Config
+source ~/.shiphero

@@ -188,20 +188,17 @@ bindsym $mod+y  exec ~/bash_dot/bin/i3MoveNextOutput.py
 exec --no-startup-id nm-applet # network
 exec --no-startup-id gnome-sound-applet # sound
 exec --no-startup-id clipit # clipboard manager
+exec --no-startup-id copyq
 
 # switch between the current and the previously focused one
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move windows to workspace back_and_forth #not working
 
-#bindsym $mod+Control+Left workspace previonoutput #not working
-#bindsym $mod+Control+Right workspace nextonoutput #not working
-
 bindsym Mod1+Tab workspace next_on_output
 bindsym Mod1+Shift+Tab workspace prev_on_output
 
 bindsym Mod1+q exec xrandr --output HDMI-2 --off
-#bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --right-of eDP-1 --output eDP-1 --auto --mode 1360x768
-bindsym Mod1+w exec xrandr --output HDMI-2 --auto --mode 1920x1080 --left-of HDMI-1 --output HDMI-1 --auto --mode 1920x1080 --above eDP-1 --output eDP-1 --auto --mode 1360x768
+bindsym Mod1+w exec xrandr --output HDMI-1-1 --auto --mode 1920x1080 --left-of eDP-1 --output eDP-1 --auto --mode 1360x768
 bindsym Mod1+e exec xrandr --output HDMI-2 --auto --mode 1920x1080 --output eDP-1 --off
 
 # fast focus
@@ -221,22 +218,25 @@ bindsym $mod+F8 exec "python /home/chinomng/bash_dot/scripts/pylauncher.py"
 for_window [class="Tk"] floating enable focus
 
 # monitors configuration
-exec --no-startup-id xrandr --output HDMI-2 --auto --mode 1920x1080 --left-of HDMI-1 --output HDMI-1 --auto --mode 1920x1080 --above eDP-1 --output eDP-1 --auto --mode 1360x768
+
+
+exec --no-startup-id xrandr --output HDMI-1-1 --auto --mode 1920x1080 --left-of eDP-2 --output eDP-2 --auto --mode 1368x768
+
 
 exec --no-startup-id xset m 1 1
 
 # load layouts. eDP1 is the laptop, HDMI2 is the external monitor
 workspace_layout tabbed
 
-workspace 1 output HDMI-2
-workspace 2 output HDMI-1
-workspace 3 output HDMI-2
-workspace 4 output HDMI-2
-workspace 5 output HDMI-2
-workspace 6 output HDMI-2
-workspace 7 output HDMI-2
-workspace 8 output HDMI-2
-workspace 9 output HDMI-2
+workspace 1 output HDMI-1-1
+workspace 2 output DP-1-2
+workspace 3 output HDMI-1-1
+workspace 4 output HDMI-1-1
+workspace 5 output HDMI-1-1
+workspace 6 output HDMI-1-1
+workspace 7 output HDMI-1-1
+workspace 8 output HDMI-1-1
+workspace 9 output HDMI-1-1
 
 for_window [instance="terminator"] move to workspace 1
 for_window [instance="x-terminal-emulator"] move to workspace 1
@@ -258,9 +258,13 @@ for_window [instance="web.whatsapp.com"] move to workspace 8
 for_window [instance="www.youtube.com"] move to workspace 8
 
 # Apps to be opened on start up
-exec --no-startup-id i3-msg 'exec terminator'
+exec --no-startup-id i3-msg 'exec terminator -l docker_monorepo'
 exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --class=shiphero'
-exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --app=https://shiphero.slack.com --class=slack'
-exec --no-startup-id i3-msg 'exec /home/chinomng/Downloads/pycharm-2020.3/bin/pycharm.sh'
+exec --no-startup-id i3-msg 'exec /snap/bin/slack'
+exec --no-startup-id i3-msg 'exec /home/chinomng/Downloads/pycharm-2024.1.4/bin/pycharm.sh'
 exec --no-startup-id i3-msg 'exec gedit'
 exec --no-startup-id i3-msg 'exec /usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/  --class=chinomng'
+#exec --no-startup-id i3-msg 'exec systemctl --user start docker-desktop'
+
+# auto lock the screen
+exec "xautolock -detectsleep -time 5 -locker \"i3lock -c 000000\""
