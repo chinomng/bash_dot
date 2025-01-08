@@ -1,3 +1,0 @@
-#!/bin/bash
-
-terminator -b --layout=docker_auth_client

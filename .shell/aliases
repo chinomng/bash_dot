@@ -53,19 +53,14 @@ alias st='git status'
 alias co='git checkout'
 alias staging='greset;git co staging;git pull'
 alias master='greset;git co master;git pull'
+branchm() {
+    master && \
+    git checkout -b chinomng/$1
+}
 alias pr='push;hub pull-request -b staging'
-alias pr-master='push;gh pr create --draft'
+alias pr-master='git push;gh pr create --draft'
 alias prm=pr-master
-alias branchm=branch-master
 
-# sha1=origin/pr/<prnumber>/merge
-
-# django
-alias djrun='python manage.py runserver'
-alias djshell='python manage.py shell'
-alias djmigrate='python manage.py migrate'
-alias djmakemigrations='python manage.py makemigrations'
-alias djtest='python manage.py test'
 
 #alias cd='cd;ll'
 alias ..='cd ..'
@@ -76,9 +71,6 @@ alias cp='cp -iv'
 
 alias source-bashrc='source ~/.bashrc'
 
-alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
-alias servesmtp="python -m smtpd -n -c DebuggingServer localhost:1025"
-
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 
 # some ls aliases
@@ -87,7 +79,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # enable color suppor of ls and also add handy aliases
@@ -103,21 +94,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias bpython='fades -d bpython -d jedi -d watchdog -x bpython'
-#alias docker-compose='fades -d docker-compose -x docker-compose'
 
 alias disk='df -h'
 alias disk-size='du -hs'
 
 alias hibernate='systemctl hibernate'
 alias suspend='systemctl suspend'
-
-# applications
-alias browser_slack='/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --app=https://shiphero.slack.com --class=slack'
-alias browser_shiphero='/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-shiphero/  --class=shiphero'
-alias browser_chinomng='/usr/bin/brave-browser --user-data-dir=/home/chinomng/.config/BraveSoftware/profile-chinomng/  --class=chinomng'
-alias pycharm='/home/chinomng/Downloads/pycharm-2020.3/bin/pycharm.sh'
-
-# docker-desktop
-#alias docker="/usr/local/bin/com.docker.cli"
-
 

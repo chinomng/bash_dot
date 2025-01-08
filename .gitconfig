@@ -47,6 +47,7 @@ delete = branch -D
 
 [push]
 default = simple
+	autoSetupRemote = true
 
 [merge]
 tool = meld

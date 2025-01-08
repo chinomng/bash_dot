@@ -46,14 +46,17 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 source ~/.shell/aliases
 source ~/.oh-my-zsh
-source ~/antigen.zsh
+source ~/.antigen.zsh
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+PROMPT='%F{green}%1~ %F{blue}$(git_prompt_info)%f ➜ '
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 # virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-export WORKON_HOME=~/.virtualenvs
-source ~/.local/bin/virtualenvwrapper.sh
+#export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+#export WORKON_HOME=~/.virtualenvs
+#source ~/.local/bin/virtualenvwrapper.sh
 
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 
@@ -73,7 +76,7 @@ antigen bundle pip
 antigen bundle python
 
 antigen bundle virtualenv
-antigen bundle virtualenvwrapper
+#antigen bundle virtualenvwrapper
 
 antigen bundle docker
 
@@ -121,3 +124,17 @@ xset r rate 700 50
 
 # Load ShipHero Config
 source ~/.shiphero
+
+. "$HOME/.local/bin/env"
+
+function cd() {
+     # automatically activate venv if .venv exists in the target dir
+    builtin cd "$@"  #
+    if [ -d ".venv" ] && [ -z "$VIRTUAL_ENV" ]; then
+        source .venv/bin/activate
+    fi
+}
+
+# go to project root if inside a venv
+alias cdproject='[ -n "$VIRTUAL_ENV" ] && cd "$(dirname "$VIRTUAL_ENV")"'
+
